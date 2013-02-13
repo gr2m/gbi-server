@@ -73,7 +73,7 @@ These Python packages will be installed by running::
 
 .. note::
 
-    The `requirements.txt` is located in ``server/requirements.txt``
+    The `requirements.txt` is located in ``app/requirements.txt``
 
 
 virtualenv
