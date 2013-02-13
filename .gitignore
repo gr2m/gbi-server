@@ -1,0 +1,9 @@
+docs/*/build
+app/gbi_server/static/.webassets-cache
+app/gbi_server/static/cache
+*.db
+*.pyc
+*.egg-info
+app/.ropeproject
+app/gbi_local_develop.conf
+app/dist/
