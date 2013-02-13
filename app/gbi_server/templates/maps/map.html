@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% from "macros/map.html" import add_wmts_layers, add_geojson_layer, add_basic_layer %}
+
+{% block title %}{{ _('Map') }} {% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map_geojson.js') }}"></script>
+
+    <script type="text/javascript">
+        {{ add_basic_layer() }}
+        {{ add_wmts_layers(wmts_layers, user) }}
+        {{ add_geojson_layer( vector_layers) }}
+        $(document).ready(function() {
+            var base_map = init_map();
+            init_geojson(base_map);
+  		 });
+    </script>
+{% endblock %}
+
+{% block content_head %}<h1>{{_('maps')}} {{ tooltip(_('tooltip - map overivew ')) }}</h1>{% endblock %}
+
+{% block content %}
+    <div class="map" id='map'></div>
+{% endblock %}

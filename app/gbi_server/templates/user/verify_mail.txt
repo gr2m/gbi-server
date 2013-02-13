@@ -1,0 +1,11 @@
+{{_('mail verify intro', email=user.email)}}
+
+{{_('mail verify instructions', verify_url=verify.url) }}
+
+{% if not user.is_customer %}
+{{_('mail verify activate info')}}
+{% endif%}
+
+{{_('mail regards')}}
+
+{{_('mail footer')}}

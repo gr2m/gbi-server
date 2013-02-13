@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} {{_('WMTS list')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('WMTS list')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ _('wmts_title') }}</th>
+                    <th>{{ _('wmts_url') }}</th>
+                    <th>{{ _('wmts_layer') }}</th>
+                    <th>{{ _('wmts_format') }}</th>
+                    <th>{{ _('wmts_view_level_start') }}</th>
+                    <th>{{ _('wmts_view_level_end') }}</th>
+                    <th>{{ _('wmts_is_background_layer') }}</th>
+                    <th>{{ _('wmts_is_transparent') }}</th>
+                    <th>{{ _('wmts_is_public')}}
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for elem in wmts %}
+                <tr>
+                    <td>{{ elem.title }}</td>
+                    <td>{{ elem.url }}</td>
+                    <td>{{ elem.layer }}</td>
+                    <td>{{ elem.format }}</td>
+                    <td>{{ elem.view_level_start }}</td>
+                    <td>{{ elem.view_level_end }}</td>
+                    <td>{{ elem.is_background_layer }}</td>
+                    <td>{{ elem.is_transparent }}</td>
+                    <td>{{ elem.is_public }}</td>
+                    <td>
+                        <a class="btn btn-small" href="{{ url_for('admin.wmts_edit', id=elem.id) }}">{{ _('edit') }}</a>
+                        <a class="btn btn-small" href="{{ url_for('admin.wmts_remove', id=elem.id) }}">{{ _('remove') }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-small" href="{{ url_for('admin.wmts_edit') }}">{{ _('create WMTS') }}</a>
+    </div>
+</div>
+{% endblock %}

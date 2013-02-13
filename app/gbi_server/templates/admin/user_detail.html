@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% from "macros/user.html" import user_detail %}
+
+{% block title %} {{_('user details')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('user details')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        {{ user_detail(user, user.get_address()) }}
+        <dl class="dl-horizontal">
+            <dt>{{ _('status') }}</dt>
+            <dd>
+                {% if user.active %}
+                    {{ _('active') }}
+                {% elif user.verified %}
+                    {{ _('verified') }}, {{ _('not active')}}
+                {% else %}
+                    {{ _('not verified') }}
+                {% endif %}
+            </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>{{ _('user settings') }}</dt>
+            <dd>
+                <a class="btn btn-small" {% if not user.active and user.verified %} href="{{ url_for('admin.activate_user', id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('activate') }}</a>
+                <a class="btn btn-small" {% if not user.active and not user.verified %} href="{{ url_for('admin.verify_user', id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('verify') }}</a>
+                <a class="btn btn-small" href="{{ url_for('admin.edit_user', id=user.id) }}">{{ _('edit') }}</a>
+                <a class="btn btn-small" href="{{ url_for('admin.reset_user_password', id=user.id) }}">{{ _('reset password') }}</a>
+                <a class="btn btn-small" href="{{ url_for('admin.user_log', id=user.id) }}">{{ _('show log') }}</a>
+                <a class="btn btn-small" href="{{ url_for('admin.remove_user', id=user.id) }}">{{ _('remove') }}</a>
+            </dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}
+

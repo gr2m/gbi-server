@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %}{{_('Refresh florlp data')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('Refresh florlp data')}}</h1>{% endblock %}
+
+{% block content %}
+<div> 
+    <form method="POST">
+        {{ form.csrf }}
+        {{ input(form.password) }}
+        {{ button(_('Refresh florlp data'), True) }}
+    </form>
+</div>
+{% endblock %}

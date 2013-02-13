@@ -1,0 +1,1341 @@
+# German translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-02-11 10:58+0100\n"
+"PO-Revision-Date: 2013-02-08 08:51+0100\n"
+"Last-Translator: \n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: gbi_server/application.py:147 gbi_server/templates/errors/405.html:2
+#: gbi_server/templates/errors/405.html:4
+msgid "method not allowed"
+msgstr "Methode nicht erlaubt"
+
+#: gbi_server/application.py:153 gbi_server/templates/errors/404.html:2
+#: gbi_server/templates/errors/404.html:4
+msgid "page not found"
+msgstr "Seite nicht gefunden"
+
+#: gbi_server/application.py:159 gbi_server/templates/errors/403.html:3
+#: gbi_server/templates/errors/403.html:6
+msgid "not allowed"
+msgstr "Zugriff nicht erlaubt"
+
+#: gbi_server/application.py:165
+msgid "an error has occurred"
+msgstr "Es ist ein Fehler aufgetreten"
+
+#: gbi_server/application.py:171
+msgid "Login required"
+msgstr "Login erforderlich"
+
+#: gbi_server/application.py:172
+msgid "Please login to see this page"
+msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
+
+#: gbi_server/forms/admin.py:10 gbi_server/forms/user.py:22
+#: gbi_server/templates/admin/user_list.html:14
+#: gbi_server/templates/macros/user.html:6
+msgid "type"
+msgstr "Benutzertyp"
+
+#: gbi_server/forms/admin.py:11 gbi_server/forms/user.py:23
+#: gbi_server/model/user.py:55
+msgid "customer"
+msgstr "Landwirt"
+
+#: gbi_server/forms/admin.py:12 gbi_server/forms/user.py:24
+#: gbi_server/model/user.py:55
+msgid "service_provider"
+msgstr "Dienstleister"
+
+#: gbi_server/forms/admin.py:13 gbi_server/model/user.py:55
+msgid "consultant"
+msgstr "Berater"
+
+#: gbi_server/forms/admin.py:14 gbi_server/model/user.py:55
+#: gbi_server/templates/admin/index.html:5
+msgid "admin"
+msgstr "Administrator"
+
+#: gbi_server/forms/admin.py:16 gbi_server/templates/admin/user_detail.html:19
+#: gbi_server/templates/admin/user_list.html:30
+msgid "verified"
+msgstr "Verifiziert"
+
+#: gbi_server/forms/admin.py:17 gbi_server/templates/admin/user_detail.html:17
+#: gbi_server/templates/admin/user_list.html:28
+msgid "active"
+msgstr "Aktiviert"
+
+#: gbi_server/forms/admin.py:18 gbi_server/forms/user.py:33
+msgid "terms of use"
+msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
+
+#: gbi_server/forms/admin.py:21 gbi_server/templates/admin/wmts_list.html:14
+msgid "wmts_url"
+msgstr "WMTS URL"
+
+#: gbi_server/forms/admin.py:22
+msgid "wmts_username"
+msgstr "Benutzername"
+
+#: gbi_server/forms/admin.py:23
+msgid "wmts_password"
+msgstr "Passwort"
+
+#: gbi_server/forms/admin.py:24
+msgid "wmts_name"
+msgstr "Name"
+
+#: gbi_server/forms/admin.py:25 gbi_server/templates/admin/wmts_list.html:13
+msgid "wmts_title"
+msgstr "Titel"
+
+#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/wmts_list.html:15
+msgid "wmts_layer"
+msgstr "Layer"
+
+#: gbi_server/forms/admin.py:27 gbi_server/templates/admin/wmts_list.html:16
+msgid "wmts_format"
+msgstr "Format"
+
+#: gbi_server/forms/admin.py:28
+msgid "wmts_srs"
+msgstr "SRS"
+
+#: gbi_server/forms/admin.py:29
+msgid "wmts_matrix_set"
+msgstr "Matrix Set"
+
+#: gbi_server/forms/admin.py:31
+msgid "wmts_view_coverage"
+msgstr "Anzeigebereich"
+
+#: gbi_server/forms/admin.py:32 gbi_server/templates/admin/wmts_list.html:17
+msgid "wmts_view_level_start"
+msgstr "Start-Level"
+
+#: gbi_server/forms/admin.py:33 gbi_server/templates/admin/wmts_list.html:18
+msgid "wmts_view_level_end"
+msgstr "End-Level"
+
+#: gbi_server/forms/admin.py:35
+msgid "wmts_background_layer"
+msgstr "Hintergrundlayer"
+
+#: gbi_server/forms/admin.py:36
+msgid "wmts_transparent"
+msgstr "Transparent"
+
+#: gbi_server/forms/admin.py:37
+msgid "wmts_visibility"
+msgstr "Sichtbar"
+
+#: gbi_server/forms/admin.py:38
+msgid "wmts_public"
+msgstr "Öffentlich"
+
+#: gbi_server/forms/admin.py:42
+msgid "level needs to be bigger or equal to start level"
+msgstr ""
+"Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
+" sein"
+
+#: gbi_server/forms/user.py:9 gbi_server/forms/user.py:27
+#: gbi_server/forms/user.py:39 gbi_server/templates/admin/user_list.html:13
+#: gbi_server/templates/boxes/overview.html:19
+#: gbi_server/templates/macros/user.html:3
+msgid "email"
+msgstr "E-Mail Adresse"
+
+#: gbi_server/forms/user.py:10 gbi_server/forms/user.py:28
+#: gbi_server/forms/user.py:36 gbi_server/forms/user.py:42
+#: gbi_server/forms/user.py:52
+msgid "password"
+msgstr "Passwort"
+
+#: gbi_server/forms/user.py:13
+msgid "florlp_username"
+msgstr "FLOrlp Benutzername"
+
+#: gbi_server/forms/user.py:14
+msgid "realname"
+msgstr "Name"
+
+#: gbi_server/forms/user.py:15
+msgid "street"
+msgstr "Straße"
+
+#: gbi_server/forms/user.py:16
+msgid "housenumber"
+msgstr "Hausnummer"
+
+#: gbi_server/forms/user.py:17
+msgid "zipcode"
+msgstr "Postleitzahl"
+
+#: gbi_server/forms/user.py:18
+msgid "city"
+msgstr "Stadt"
+
+#: gbi_server/forms/user.py:21
+msgid "florlp_password"
+msgstr "FLOrlp Passwort"
+
+#: gbi_server/forms/user.py:30 gbi_server/forms/user.py:44
+msgid "Passwords must match"
+msgstr "Passwörter müssen übereinsteimmen"
+
+#: gbi_server/forms/user.py:32 gbi_server/forms/user.py:46
+msgid "password repeat"
+msgstr "Passwort wiederholen"
+
+#: gbi_server/forms/user.py:49
+msgid "old password"
+msgstr "Altes Passwort"
+
+#: gbi_server/forms/user.py:55
+msgid "file"
+msgstr "Datei"
+
+#: gbi_server/forms/validator.py:9
+msgid "email already exists."
+msgstr "E-Mail Adresse exisitert bereits"
+
+#: gbi_server/forms/validator.py:13
+msgid "email does not exist."
+msgstr "E-Mail Adresse nicht vorhanden"
+
+#: gbi_server/forms/validator.py:17
+msgid "Password must at least 6 characters"
+msgstr "Passwort muss eine Länge von mindestens 6 Zeichen besitzen"
+
+#: gbi_server/forms/wfs.py:10
+msgid "wfs_layer"
+msgstr "WFS Layer"
+
+#: gbi_server/forms/wfs.py:18
+msgid "wfs_new_layer_name"
+msgstr "Layer Name"
+
+#: gbi_server/forms/wfs.py:18
+msgid "Only alphanummeric lowercase characters are allowed!"
+msgstr "Es sind nur Kleinbuchstaben und Zahlen erlaubt"
+
+#: gbi_server/lib/external_wms.py:63
+msgid "external_wms_title"
+msgstr "GBI WMS"
+
+#: gbi_server/templates/base.html:22
+msgid "GBI Server"
+msgstr "GBI Server"
+
+#: gbi_server/templates/base.html:25 gbi_server/templates/index.html:4
+msgid "home"
+msgstr "Übersicht"
+
+#: gbi_server/templates/base.html:29
+msgid "create account"
+msgstr "Konto erstellen"
+
+#: gbi_server/templates/base.html:30 gbi_server/templates/user/login.html:5
+#: gbi_server/templates/user/login.html:7
+#: gbi_server/templates/user/login.html:16
+msgid "login"
+msgstr "Anmelden"
+
+#: gbi_server/templates/base.html:33
+msgid "administration"
+msgstr "Administration"
+
+#: gbi_server/templates/base.html:35
+#: gbi_server/templates/admin/user_detail.html:26
+msgid "user settings"
+msgstr "Benutzereinstellungen"
+
+#: gbi_server/templates/base.html:36
+msgid "logout"
+msgstr "Abmelden"
+
+#: gbi_server/templates/index.html:6
+msgid "Welcome to GBI Server"
+msgstr "Willkommen"
+
+#: gbi_server/templates/index.html:13
+msgid "WMTS map"
+msgstr "Kartenansicht"
+
+#: gbi_server/templates/index.html:14
+msgid "info text wmts map"
+msgstr "Übersicht über alle Karten und Flächen die Ihnen zur Verfügung stehen"
+
+#: gbi_server/templates/index.html:16 gbi_server/templates/maps/wfs.html:5
+#: gbi_server/templates/maps/wfs.html:36
+msgid "WFS Edit"
+msgstr "Flächeneditor"
+
+#: gbi_server/templates/index.html:17
+msgid "info text wfs edit"
+msgstr "Bearbeiten Sie im Editor Ihre Flächen"
+
+#: gbi_server/templates/index.html:20
+#: gbi_server/templates/boxes/overview.html:3
+#: gbi_server/templates/boxes/overview.html:9
+msgid "overview over all boxes"
+msgstr "Übersicht über alle Boxen"
+
+#: gbi_server/templates/index.html:21
+msgid "info text boxesoverview"
+msgstr "Übersicht über alle Boxen"
+
+#: gbi_server/templates/index.html:24
+#: gbi_server/templates/boxes/consultant.html:11
+msgid "consultantbox"
+msgstr "Beraterbox"
+
+#: gbi_server/templates/index.html:25
+msgid "info text consultantbox"
+msgstr ""
+"Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie "
+"hier"
+
+#: gbi_server/templates/index.html:27
+#: gbi_server/templates/boxes/customer.html:11
+msgid "customerbox"
+msgstr "Dokumentenbox"
+
+#: gbi_server/templates/index.html:28
+msgid "info text customerbox"
+msgstr ""
+"In der Dokumentenbox können Sie Ihrem Berater Dokumente zur Verfügung "
+"stellen"
+
+#: gbi_server/templates/index.html:30
+msgid "gbi client download"
+msgstr "GBI-Client herunterladen"
+
+#: gbi_server/templates/index.html:31
+msgid "info text gbi client download"
+msgstr "Laden Sie den GBI-Client für Windows herunter"
+
+#: gbi_server/templates/index.html:34
+msgid "gbi user manual"
+msgstr "Benutzerhandbuch"
+
+#: gbi_server/templates/index.html:35
+msgid "user manual"
+msgstr "Laden Sie hier das Benutzerhandbuch herunter"
+
+#: gbi_server/templates/index.html:39
+msgid "info text gbi client first page"
+msgstr ""
+"<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a "
+"href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang "
+"nutzen zu können."
+
+#: gbi_server/templates/admin/create_user.html:5
+#: gbi_server/templates/admin/create_user.html:7
+#: gbi_server/templates/admin/index.html:12
+msgid "create user"
+msgstr "Neuen Benutzer erstellen"
+
+#: gbi_server/templates/admin/create_user.html:26
+msgid "create"
+msgstr "Erstellen"
+
+#: gbi_server/templates/admin/edit_user.html:5
+#: gbi_server/templates/admin/edit_user.html:7
+msgid "Edit user"
+msgstr "Benutzer editieren"
+
+#: gbi_server/templates/admin/edit_user.html:20
+#: gbi_server/templates/admin/wmts_edit.html:46
+#: gbi_server/templates/user/edit_address.html:22
+#: gbi_server/templates/user/edit_password.html:16
+msgid "save"
+msgstr "Speichern"
+
+#: gbi_server/templates/admin/index.html:3
+msgid "Admin"
+msgstr "Administrator"
+
+#: gbi_server/templates/admin/index.html:11
+#: gbi_server/templates/admin/user_list.html:3
+#: gbi_server/templates/admin/user_list.html:5
+msgid "user list"
+msgstr "Benutzerübersicht"
+
+#: gbi_server/templates/admin/index.html:16
+#: gbi_server/templates/admin/wmts_list.html:3
+#: gbi_server/templates/admin/wmts_list.html:5
+msgid "WMTS list"
+msgstr "WMTS Übersicht"
+
+#: gbi_server/templates/admin/index.html:17
+#: gbi_server/templates/admin/wmts_edit.html:9
+#: gbi_server/templates/admin/wmts_edit.html:18
+#: gbi_server/templates/admin/wmts_list.html:45
+msgid "create WMTS"
+msgstr "WMTS erstellen"
+
+#: gbi_server/templates/admin/remove_user.html:6
+#: gbi_server/templates/admin/remove_user.html:12
+msgid "remove user"
+msgstr "Benutzer löschen"
+
+#: gbi_server/templates/admin/remove_user.html:15
+#: gbi_server/templates/admin/user_detail.html:33
+#: gbi_server/templates/admin/wmts_list.html:39
+msgid "remove"
+msgstr "Löschen"
+
+#: gbi_server/templates/admin/reset_user_password.html:5
+#: gbi_server/templates/admin/reset_user_password.html:7
+#: gbi_server/templates/admin/reset_user_password.html:15
+msgid "set new password"
+msgstr "Neues Passwort setzen"
+
+#: gbi_server/templates/admin/user_activate_mail.txt:1
+msgid "activate user mail intro"
+msgstr ""
+"Guten Tag,\n"
+" es hat sich ein neuer Benuzter in der Anwendung angemeldet. Klicken Sie "
+"auf den Link um den Benutzer zu aktivieren oder zu bearbeiten."
+
+#: gbi_server/templates/admin/user_activate_mail.txt:5
+#: gbi_server/templates/user/activated_mail.txt:5
+#: gbi_server/templates/user/recover_mail.txt:5
+#: gbi_server/templates/user/verify_mail.txt:9
+msgid "mail regards"
+msgstr ""
+"Mit freundlichen Grüßen,\n"
+"Ihr GBI Team"
+
+#: gbi_server/templates/admin/user_activate_mail.txt:7
+#: gbi_server/templates/user/activated_mail.txt:7
+#: gbi_server/templates/user/recover_mail.txt:7
+#: gbi_server/templates/user/verify_mail.txt:11
+msgid "mail footer"
+msgstr ""
+"-- \n"
+"\n"
+"...Impressum hier..."
+
+#: gbi_server/templates/admin/user_detail.html:5
+#: gbi_server/templates/admin/user_detail.html:7
+#: gbi_server/templates/admin/user_list.html:35
+#: gbi_server/templates/admin/user_log.html:5
+msgid "user details"
+msgstr "Benutzerdetails"
+
+#: gbi_server/templates/admin/user_detail.html:14
+#: gbi_server/templates/admin/user_list.html:16
+msgid "status"
+msgstr "Status"
+
+#: gbi_server/templates/admin/user_detail.html:19
+#: gbi_server/templates/admin/user_list.html:30
+msgid "not active"
+msgstr "nicht aktiviert"
+
+#: gbi_server/templates/admin/user_detail.html:21
+#: gbi_server/templates/admin/user_list.html:32
+msgid "not verified"
+msgstr "nicht verifiziert"
+
+#: gbi_server/templates/admin/user_detail.html:28
+msgid "activate"
+msgstr "Aktivieren"
+
+#: gbi_server/templates/admin/user_detail.html:29
+msgid "verify"
+msgstr "Verifizieren"
+
+#: gbi_server/templates/admin/user_detail.html:30
+#: gbi_server/templates/admin/wmts_list.html:38
+msgid "edit"
+msgstr "Editieren"
+
+#: gbi_server/templates/admin/user_detail.html:31
+msgid "reset password"
+msgstr "Passwort zurücksetzen"
+
+#: gbi_server/templates/admin/user_detail.html:32
+msgid "show log"
+msgstr "Zugriffe anzeigen"
+
+#: gbi_server/templates/admin/user_list.html:15
+#: gbi_server/templates/macros/user.html:9
+msgid "registered"
+msgstr "Registriert"
+
+#: gbi_server/templates/admin/user_log.html:7
+msgid "user log"
+msgstr "Benutzerzugriffe"
+
+#: gbi_server/templates/admin/user_log.html:15
+msgid "time"
+msgstr "Zeit"
+
+#: gbi_server/templates/admin/user_log.html:16
+msgid "action"
+msgstr "Aktion"
+
+#: gbi_server/templates/admin/user_log.html:17
+msgid "format"
+msgstr "Format"
+
+#: gbi_server/templates/admin/user_log.html:18
+msgid "srs"
+msgstr "SRS"
+
+#: gbi_server/templates/admin/user_log.html:19
+msgid "mapping"
+msgstr "Mapping"
+
+#: gbi_server/templates/admin/user_log.html:20
+msgid "source"
+msgstr "Quelle"
+
+#: gbi_server/templates/admin/user_log.html:21
+msgid "layer"
+msgstr "Layer"
+
+#: gbi_server/templates/admin/user_log.html:22
+msgid "zoom_level_start"
+msgstr "Startlevel"
+
+#: gbi_server/templates/admin/user_log.html:23
+msgid "zoom_level_end"
+msgstr "Endlevel"
+
+#: gbi_server/templates/admin/user_log.html:24
+msgid "refreshed"
+msgstr "Aktualisiert"
+
+#: gbi_server/templates/admin/user_log.html:25
+msgid "geometry"
+msgstr "Geometrie"
+
+#: gbi_server/templates/admin/wmts_edit.html:7
+#: gbi_server/templates/admin/wmts_edit.html:16
+msgid "edit WMTS"
+msgstr "WMTS Editieren"
+
+#: gbi_server/templates/admin/wmts_list.html:19
+msgid "wmts_is_background_layer"
+msgstr "Hintergrundlayer"
+
+#: gbi_server/templates/admin/wmts_list.html:20
+msgid "wmts_is_transparent"
+msgstr "Transparent"
+
+#: gbi_server/templates/admin/wmts_list.html:21
+msgid "wmts_is_public"
+msgstr "Öffentlich"
+
+#: gbi_server/templates/boxes/base.html:5
+msgid "box"
+msgstr "Dokumentenbox"
+
+#: gbi_server/templates/boxes/base.html:13
+msgid "upload file"
+msgstr "Datei hochladen"
+
+#: gbi_server/templates/boxes/base.html:19
+msgid "upload help text"
+msgstr ""
+"Bitte wählen Sie eine Datei aus die Sie in Ihre Box hochladen können. Es "
+"werden Bilddateien (jpeg, png, tif) sowie Textdateien (csv, xml, json) "
+"und PDF vom System unterstützt."
+
+#: gbi_server/templates/boxes/base.html:20
+msgid "Upload"
+msgstr "Hochladen"
+
+#: gbi_server/templates/boxes/base.html:30
+msgid "file overview"
+msgstr "Dateiübersicht"
+
+#: gbi_server/templates/boxes/base.html:34
+msgid "filename"
+msgstr "Dateiname"
+
+#: gbi_server/templates/boxes/base.html:35
+msgid "date"
+msgstr "Datum"
+
+#: gbi_server/templates/boxes/base.html:36
+msgid "size"
+msgstr "Dateigröße"
+
+#: gbi_server/templates/boxes/base.html:55
+msgid "delete"
+msgstr "Löschen"
+
+#: gbi_server/templates/boxes/base.html:67
+msgid "help text file exists, are you sure you want to overwrite it?"
+msgstr ""
+"Eine Datei mit diesem Dateinamen existiert bereits. Wollen Sie die Datei "
+"überschreiben?"
+
+#: gbi_server/templates/boxes/base.html:69
+msgid "abort"
+msgstr "Abbrechen"
+
+#: gbi_server/templates/boxes/base.html:70
+msgid "ok"
+msgstr "Ja, überschreiben"
+
+#: gbi_server/templates/boxes/base.html:76
+msgid "file is uploading..."
+msgstr "Datei wird hochgeladen..."
+
+#: gbi_server/templates/boxes/consultant.html:3
+msgid "consultantbox title"
+msgstr "Beraterbox"
+
+#: gbi_server/templates/boxes/consultant.html:8
+msgid "consultantbox for"
+msgstr "Beraterbox für"
+
+#: gbi_server/templates/boxes/consultant.html:9
+msgid "tooltip - consultantbox for consultant "
+msgstr "Beraterbox für den Landwirt. Dieser kann Dokumente von hier herunterladen."
+
+#: gbi_server/templates/boxes/consultant.html:11
+msgid "tooltip - consultantbox for customer "
+msgstr ""
+"Dies ist die Dokumentenbox in dem die Berater Ihnen Dokumente zur "
+"Verfügung stellen können"
+
+#: gbi_server/templates/boxes/customer.html:3
+msgid "customerbox title"
+msgstr "Dokumentenbox"
+
+#: gbi_server/templates/boxes/customer.html:8
+msgid "customerbox for"
+msgstr "Dokumentenbox von"
+
+#: gbi_server/templates/boxes/customer.html:9
+msgid "tooltip - customerbox for consultant "
+msgstr ""
+"Dokumentenbox des Landwirts. Hier kann er Ihnen Dokumente zur Verfügung "
+"stellen."
+
+#: gbi_server/templates/boxes/customer.html:11
+msgid "tooltip - customerbox for customer "
+msgstr ""
+"Ihre Dokumentenbox - hier können Sie Dokumente hochladen und dem Berater "
+"zur Verfügung stellen."
+
+#: gbi_server/templates/boxes/overview.html:18
+msgid "name"
+msgstr "Name"
+
+#: gbi_server/templates/boxes/overview.html:30
+msgid "goto customer box"
+msgstr "Zur Dokumentenbox"
+
+#: gbi_server/templates/boxes/overview.html:33
+msgid "goto consultant box"
+msgstr "Zur Beraterbox"
+
+#: gbi_server/templates/errors/500.html:2
+#: gbi_server/templates/errors/500.html:4
+msgid "internal error"
+msgstr "Interner Fehler"
+
+#: gbi_server/templates/macros/map.html:2
+msgid "white background map"
+msgstr "Hintergrundkarte ausblenden"
+
+#: gbi_server/templates/macros/user.html:12
+msgid "last login"
+msgstr "Letzte Anmeldung"
+
+#: gbi_server/templates/macros/user.html:15
+msgid "florlp name"
+msgstr "FLOrlp Benutzername"
+
+#: gbi_server/templates/macros/user.html:20
+msgid "address"
+msgstr "Adresse"
+
+#: gbi_server/templates/maps/map.html:5
+msgid "Map"
+msgstr "Karte"
+
+#: gbi_server/templates/maps/map.html:22
+msgid "maps"
+msgstr "Kartenübersicht"
+
+#: gbi_server/templates/maps/map.html:22
+msgid "tooltip - map overivew "
+msgstr ""
+"Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen "
+"eingeblendet"
+
+#: gbi_server/templates/maps/wfs.html:15
+msgid "save feautre not possible"
+msgstr "Daten konnten nicht gespeichert werden"
+
+#: gbi_server/templates/maps/wfs.html:16
+msgid "save feature successfull"
+msgstr "Daten erfolgreich gespeichert"
+
+#: gbi_server/templates/maps/wfs.html:42
+msgid "search features"
+msgstr "Flurstücke suchen"
+
+#: gbi_server/templates/maps/wfs.html:44
+msgid "search help text"
+msgstr ""
+"Suchen Sie hier nach dem Flurstückskennzeichen. Der Kartenausschnitt wird"
+" automatisch auf die gefundenen Flurstücke zentriert."
+
+#: gbi_server/templates/maps/wfs.html:48
+msgid "search_label"
+msgstr "Flurstückskennzeichen"
+
+#: gbi_server/templates/maps/wfs.html:48
+msgid "tooltip - search"
+msgstr ""
+"Geben Sie das zu suchende Flurstückskennzeichen in der Form "
+"\"Gemarkungsnummer-Flurnummer-Flurstücksnummer Zähler/Flurstücksnummer "
+"Nenner\" ein."
+
+#: gbi_server/templates/maps/wfs.html:54
+msgid "no search result"
+msgstr "Ihre Suche ergab kein Resultat"
+
+#: gbi_server/templates/maps/wfs.html:56
+msgid "add search"
+msgstr "Suchen"
+
+#: gbi_server/templates/maps/wfs.html:57
+msgid "remove search"
+msgstr "Suchergebnisse ausblenden"
+
+#: gbi_server/templates/maps/wfs.html:59
+msgid "feature settings"
+msgstr "Flächen bearbeiten"
+
+#: gbi_server/templates/maps/wfs.html:60
+msgid "feature help text"
+msgstr ""
+"Um eine Geometrie bearbeiten zu können, müssen Sie diese in der Karte "
+"selektieren. Bei aktiviertem Auwahlwerkezug <img src=%(logo_url)s>  "
+"klicken Sie hierfür einfach auf die gewünschte Geometrie."
+
+#: gbi_server/templates/maps/wfs.html:61
+msgid "feature operations"
+msgstr "Aktionen"
+
+#: gbi_server/templates/maps/wfs.html:62
+msgid "tooltip - feature operations"
+msgstr ""
+"Aktionen werden auf die jeweils ausgewählte Geometrie angewandt. Diese "
+"wird in der Karte hervorgehoben dargestellt"
+
+#: gbi_server/templates/maps/wfs.html:64
+msgid "copy feature"
+msgstr "Kopieren"
+
+#: gbi_server/templates/maps/wfs.html:65
+msgid "edit feature"
+msgstr "Bearbeiten"
+
+#: gbi_server/templates/maps/wfs.html:66
+msgid "delete feature"
+msgstr "Löschen"
+
+#: gbi_server/templates/maps/wfs.html:68
+msgid "save changes"
+msgstr "Änderungen dauerhaft speichern"
+
+#: gbi_server/templates/maps/wfs.html:69
+msgid "tooltip - button save changes"
+msgstr ""
+"Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button "
+"wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert "
+"werden können. Wenn Änderungen nicht gespeichert werden, gehen diese "
+"verloren."
+
+#: gbi_server/templates/maps/wfs.html:75
+msgid "attributes"
+msgstr "Eigenschaften"
+
+#: gbi_server/templates/maps/wfs.html:76
+msgid "tooltip - attrbibutes"
+msgstr "Geben Sie hier Werte zu den Eigenschaften der Flächen ein"
+
+#: gbi_server/templates/maps/wfs.html:79
+msgid "save attributes"
+msgstr "Eigenschaften speichern"
+
+#: gbi_server/templates/maps/wfs_edit.html:5
+#: gbi_server/templates/maps/wfs_edit.html:7
+msgid "wfs layer and editor choice"
+msgstr "Flächeneditor wählen"
+
+#: gbi_server/templates/maps/wfs_edit.html:12
+msgid "wfs editor choice infotext"
+msgstr ""
+"Bitte wählen Sie aus wie Sie die Fläche bearbeiten wollen. Sie können "
+"Flächen in dieser Anwendung editieren oder diesen Dienst in ein externes "
+"GIS-Programm laden und dort über den WFS-Standard einbinden und "
+"bearbeiten."
+
+#: gbi_server/templates/maps/wfs_edit.html:20
+msgid "edit internal"
+msgstr "Interner Flächeneditor"
+
+#: gbi_server/templates/maps/wfs_edit.html:21
+msgid "edit external"
+msgstr "Externer Flächeneditor über WFS"
+
+#: gbi_server/templates/maps/wfs_edit.html:22
+msgid "remove selected layer"
+msgstr "Ausgewählten Layer löschen"
+
+#: gbi_server/templates/maps/wfs_edit.html:26
+msgid "create wfs layer infotext"
+msgstr ""
+"Hier können Sie einen neuen Zeichenlayer anlegen. Der von Ihnen "
+"angegebene Layer wird erstellt und steht Ihnen danach in der Layerauswahl"
+" zur Verfügung. Für den Namen des Layers sind ausschließlich "
+"Kleinbuchstaben und Zahlen zulässig."
+
+#: gbi_server/templates/maps/wfs_edit.html:31
+msgid "add layer"
+msgstr "Layer erstellen"
+
+#: gbi_server/templates/maps/wfs_session.html:5
+#: gbi_server/templates/maps/wfs_session.html:7
+msgid "wfs session"
+msgstr "Flächen extern bearbeiten"
+
+#: gbi_server/templates/maps/wfs_session.html:12
+msgid " wfs external editor info_text_1"
+msgstr ""
+"Um die Flächen in einem externen Editor bearbeiten zu können stehen ihnen"
+" die Geometrien nun über einen WFS-Dienst zur Verfügung. Über diesen "
+"Dienst können Sie die Flächen in einem GIS-Programm Ihrer Wahl "
+"bearbeiten. Die dazu benötigte WFS-URL und den vom System angebotenen "
+"Layer, finden Sie weiter unten"
+
+#: gbi_server/templates/maps/wfs_session.html:14
+msgid " wfs external editor info_text_2 - not interneal"
+msgstr ""
+"Bitte beachten Sie, dass Sie während der Nutzung des externen Editors "
+"nicht im internen Flächeneditor arbeiten können"
+
+#: gbi_server/templates/maps/wfs_session.html:17
+msgid " wfs external editor info_text_3 - save"
+msgstr ""
+"Um Änderungen zu übernehmen die im externen Editor gemacht wurden, "
+"beenden Sie bitte anschlieißend hier den Bearbeitungsmodus"
+
+#: gbi_server/templates/maps/wfs_session.html:28
+msgid "save and end wfs session"
+msgstr "Editieren beenden und Änderungen speichern"
+
+#: gbi_server/templates/maps/wfs_session.html:29
+msgid "cancel and end wfs session"
+msgstr "Editieren beenden und Änderungen verwerfen"
+
+#: gbi_server/templates/user/activated_mail.txt:1
+msgid "mail activated intro"
+msgstr "Guten Tag"
+
+#: gbi_server/templates/user/activated_mail.txt:3
+msgid "mail activated content"
+msgstr "Ihr Konto wurde soeben von einem Administrator aktiviert."
+
+#: gbi_server/templates/user/edit_address.html:5
+#: gbi_server/templates/user/edit_address.html:7
+#: gbi_server/templates/user/index.html:16
+msgid "edit address"
+msgstr "Adresse bearbeiten"
+
+#: gbi_server/templates/user/edit_password.html:5
+#: gbi_server/templates/user/edit_password.html:7
+#: gbi_server/templates/user/index.html:21
+msgid "edit password"
+msgstr "Passwort bearbeiten"
+
+#: gbi_server/templates/user/index.html:5
+#: gbi_server/templates/user/index.html:7
+msgid "User settings"
+msgstr "Benutzereinstellungen"
+
+#: gbi_server/templates/user/index.html:14
+msgid "edit user settings"
+msgstr "Einstellungen bearbeiten"
+
+#: gbi_server/templates/user/index.html:18
+msgid "edit address help text"
+msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
+
+#: gbi_server/templates/user/index.html:23
+msgid "edit password help text"
+msgstr "Hier können Sie ihr Passwort bearbeiten"
+
+#: gbi_server/templates/user/index.html:26
+#: gbi_server/templates/user/remove.html:5
+#: gbi_server/templates/user/remove.html:7
+#: gbi_server/templates/user/remove.html:16
+msgid "remove account"
+msgstr "Konto löschen"
+
+#: gbi_server/templates/user/index.html:28
+msgid "remove account help text"
+msgstr "Hier können Sie Ihr Konto vollständig löschen"
+
+#: gbi_server/templates/user/index.html:32
+#: gbi_server/templates/user/refresh_florlp.html:5
+#: gbi_server/templates/user/refresh_florlp.html:7
+#: gbi_server/templates/user/refresh_florlp.html:14
+msgid "Refresh florlp data"
+msgstr "FLOrlp Daten aktualisieren"
+
+#: gbi_server/templates/user/index.html:34
+msgid "refresh florlp data help text"
+msgstr "Aktualisieren Sie hier Ihre FLOrlp Daten."
+
+#: gbi_server/templates/user/login.html:17
+msgid "lost password?"
+msgstr "Passwort vergessen?"
+
+#: gbi_server/templates/user/login.html:19 gbi_server/templates/user/new.html:5
+#: gbi_server/templates/user/new.html:7
+msgid "create new account"
+msgstr "Neues Konto einrichten"
+
+#: gbi_server/templates/user/new.html:26
+msgid "create accout"
+msgstr "Konto einrichten"
+
+#: gbi_server/templates/user/password_set.html:5
+#: gbi_server/templates/user/password_set.html:7
+#: gbi_server/templates/user/recover.html:5
+#: gbi_server/templates/user/recover.html:7
+#: gbi_server/templates/user/recover_sent.html:3
+#: gbi_server/templates/user/recover_sent.html:5
+msgid "password recover"
+msgstr "Passwort wiederherstellen"
+
+#: gbi_server/templates/user/password_set.html:15
+msgid "save new password"
+msgstr "Neues Passwort setzen"
+
+#: gbi_server/templates/user/recover.html:14
+msgid "recover"
+msgstr "Wiederherstellen"
+
+#: gbi_server/templates/user/recover_mail.txt:1
+msgid "password recover mail intro"
+msgstr ""
+"Guten Tag,\n"
+"\n"
+"Sie haben Ihr Passwort zur GBI-Anwendung vergessen? Sie können es mit dem"
+" unten stehenden Link neusetzen. Wenn Sie diese E-Mail nicht angefordert "
+"haben, dann ignorieren Sie bitte diese E-Mail."
+
+#: gbi_server/templates/user/recover_mail.txt:3
+msgid "password recover mail instructions"
+msgstr ""
+"Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den "
+"folgenden Link. Der Link ist 24 Stunden gültig.\n"
+"%(url)s"
+
+#: gbi_server/templates/user/recover_sent.html:9
+msgid "recover mail sent"
+msgstr ""
+"Eine E-Mail zum Wiederherstellen Ihres Passworts wurde versendet. Bitte "
+"folgen Sie den Anweisungen in dieser E-Mail."
+
+#: gbi_server/templates/user/recover_sent.html:10
+#: gbi_server/templates/user/verify_wait.html:11
+msgid "goto login"
+msgstr "Zur Anmeldung"
+
+#: gbi_server/templates/user/remove.html:12
+msgid "remove account notes"
+msgstr ""
+"Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle "
+"Daten gehen hierbei verloren. Ein wiederherstellen des Kontos nicht nicht"
+" möglich."
+
+#: gbi_server/templates/user/verify_mail.txt:1
+msgid "mail verify intro"
+msgstr ""
+"Willkommen beim GBI-Dienst! \n"
+"\n"
+"Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: "
+"%(email)s"
+
+#: gbi_server/templates/user/verify_mail.txt:3
+msgid "mail verify instructions"
+msgstr ""
+"Bitte klicken Sie jetzt auf folgenden Link, um die Anmeldung "
+"abzuschließen:\n"
+"%(verify_url)s \n"
+"\n"
+"Dieser Link ist 24 Stunden lang gültig. Falls Sie die Anmeldung "
+"innerhalbdieser Zeit nicht abschließen können, melden Sie sich bitte "
+"erneut an."
+
+#: gbi_server/templates/user/verify_mail.txt:6
+msgid "mail verify activate info"
+msgstr ""
+"Bitte beachten Sie, dass Ihr Zugang erst noch von einem Administrator "
+"freigeschaltet werden muss. Dieser wurder per E-Mail bereits über Ihre "
+"Anmeldung informiert."
+
+#: gbi_server/templates/user/verify_wait.html:3
+msgid "Email verification"
+msgstr "E-Mail Verifizierung"
+
+#: gbi_server/templates/user/verify_wait.html:5
+msgid "email verification"
+msgstr "E-Mail-Adresse bestätigen"
+
+#: gbi_server/templates/user/verify_wait.html:10
+msgid "email for verification sent"
+msgstr ""
+"Um Ihre Anmeldung abzuschließen, müssen Sie Ihre E-Mail Adresse "
+"verifizieren. In wenigen Minuten erhalten Sie eine E-Mail an Ihre "
+"angegebene Adresse. Bitte folgen Sie den Anweisungen in dieser E-Mail um "
+"die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
+"href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
+
+#: gbi_server/views/admin.py:53
+msgid "User verified"
+msgstr "Benutzer verifiziert"
+
+#: gbi_server/views/admin.py:63
+msgid "Account activated mail subject"
+msgstr "GBI-Konto aktiviert"
+
+#: gbi_server/views/admin.py:68
+msgid "User activated"
+msgstr "Konto aktiviert"
+
+#: gbi_server/views/admin.py:87 gbi_server/views/user.py:117
+#: gbi_server/views/user.py:150
+msgid "Email verification mail subject"
+msgstr "E-Mail-Adresse bestätigen"
+
+#: gbi_server/views/admin.py:100
+msgid "User created"
+msgstr "Benutzer erstellt"
+
+#: gbi_server/views/admin.py:116
+msgid "User edited"
+msgstr "Benutzerdaten erfolgreich bearbeitet"
+
+#: gbi_server/views/admin.py:127
+msgid "Password reset"
+msgstr "Passwort zurückgesetzt"
+
+#: gbi_server/views/admin.py:138
+msgid "User removed"
+msgstr "Benutzer gelöscht"
+
+#: gbi_server/views/admin.py:195
+msgid "Saved WMTS"
+msgstr "WMTS gespeichert"
+
+#: gbi_server/views/admin.py:199
+msgid "WMTS with this name already exist"
+msgstr "WMTS mit diesem Namen existiert bereits"
+
+#: gbi_server/views/admin.py:208
+msgid "WMTS removed"
+msgstr "WMTS gelöscht"
+
+#: gbi_server/views/boxes.py:39
+msgid "upload success"
+msgstr "Datei erfolgreich hochgeladen"
+
+#: gbi_server/views/boxes.py:41
+msgid "file type not allowed"
+msgstr "Dateityp ist nich erlaubt"
+
+#: gbi_server/views/boxes.py:94
+msgid "file deleted"
+msgstr "Datei wurde gelöscht"
+
+#: gbi_server/views/context.py:95
+msgid "area box"
+msgstr ""
+
+#: gbi_server/views/context.py:105
+msgid "consultant box"
+msgstr "Beraterbox"
+
+#: gbi_server/views/maps.py:57
+#, python-format
+msgid "Layer %(layer)s already existlayer"
+msgstr "Layer '%(layer)s existiert bereits"
+
+#: gbi_server/views/maps.py:60
+#, python-format
+msgid "Layer %(layer)s createdlayer"
+msgstr "Layer '%(layer)s wurde erstellt"
+
+#: gbi_server/views/maps.py:79 gbi_server/views/maps.py:122
+msgid "external edit in progress"
+msgstr "Externer Editiervorgang aktiv."
+
+#: gbi_server/views/maps.py:117
+msgid "not allowed to remove this layer"
+msgstr "Dieser Layer darf nicht gelöscht werden"
+
+#: gbi_server/views/maps.py:128
+#, python-format
+msgid "Layer %(layer)s removedlayer"
+msgstr "Layer %(layer)s gelöscht"
+
+#: gbi_server/views/maps.py:130
+#, python-format
+msgid "Could not remove layer %(layer)slayer"
+msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
+
+#: gbi_server/views/maps.py:159
+msgid "wfs changes discarded"
+msgstr "Änderungen verworfen"
+
+#: gbi_server/views/maps.py:199
+msgid "wfs changes saved"
+msgstr "Änderungen gespeichert"
+
+#: gbi_server/views/user.py:45
+msgid "user or passwort is not correct"
+msgstr "Bentuzername oder Passwort sind nicht korrekt"
+
+#: gbi_server/views/user.py:50
+msgid "account not activated"
+msgstr ""
+"Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind "
+"bereits über Ihre Anmeldung informiert."
+
+#: gbi_server/views/user.py:56
+msgid "Logged in successfully."
+msgstr "Erfolgreich angemeldet"
+
+#: gbi_server/views/user.py:81
+msgid "Invalid florlp username/password"
+msgstr "Ungültiger FLOrlp Benutzername oder Passwort"
+
+#: gbi_server/views/user.py:135
+msgid "Account removed"
+msgstr "Konto gelöscht"
+
+#: gbi_server/views/user.py:155
+msgid "email verification was sent successfully"
+msgstr "E-Mail wurde erfolgreich versendet"
+
+#: gbi_server/views/user.py:177
+msgid "Activate user subject"
+msgstr "GBI: Neuer Benutzer angemeldet"
+
+#: gbi_server/views/user.py:182
+msgid "Email verified"
+msgstr "E-Mail wurde erfolgreich bestätigt"
+
+#: gbi_server/views/user.py:195
+msgid "Password recover mail subject"
+msgstr "GBI Passwort zurücksetzen"
+
+#: gbi_server/views/user.py:237
+msgid "Address changed"
+msgstr "Ihre Adressedaten wurden geändert"
+
+#: gbi_server/views/user.py:250
+msgid "Password changed"
+msgstr "Ihr Passwort wurde geändert"
+
+#: gbi_server/views/user.py:253
+msgid "Old password is not correct"
+msgstr "Das eingegebene Passwort ist nicht korrekt"
+
+#: gbi_server/views/user.py:266
+msgid "Invalid florlp password"
+msgstr "Falsches FLOrlp Passwort"
+
+#: gbi_server/views/user.py:282
+msgid "Refreshed florlp data"
+msgstr "FLOrlp Daten wurde aktualisiert"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:55
+#, python-format
+msgid "Invalid field name '%s'."
+msgstr "Ungültiger Feldname '%s'."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:62
+#, python-format
+msgid "Field must be equal to %(other_name)s."
+msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:94
+#, python-format
+msgid "Field must be at least %(min)d character long."
+msgid_plural "Field must be at least %(min)d characters long."
+msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
+msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:97
+#, python-format
+msgid "Field cannot be longer than %(max)d character."
+msgid_plural "Field cannot be longer than %(max)d characters."
+msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
+msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:100
+#, python-format
+msgid "Field must be between %(min)d and %(max)d characters long."
+msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:135
+#, python-format
+msgid "Number must be greater than %(min)s."
+msgstr "Die Zahl muss größer als %(min)s sein "
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:137
+#, python-format
+msgid "Number must be less than %(max)s."
+msgstr "Zahl muss kleiner sein als %(max)s"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:139
+#, python-format
+msgid "Number must be between %(min)s and %(max)s."
+msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:188
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:221
+msgid "This field is required."
+msgstr "Dieses Feld muss ausgefüllt werden."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:249
+msgid "Invalid input."
+msgstr "Ungültige Eingabe."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:268
+msgid "Invalid email address."
+msgstr "Ungültige E-Mail-Adresse"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:297
+msgid "Invalid IP address."
+msgstr "Ungültige IP Adresse."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:345
+msgid "Invalid Mac address."
+msgstr "Ungültige MAC-Adresse"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:370
+msgid "Invalid URL."
+msgstr "Ungültige URL."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:388
+msgid "Invalid UUID."
+msgstr "Ungültige UUID."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:415
+#, python-format
+msgid "Invalid value, must be one of: %(values)s."
+msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:442
+#, python-format
+msgid "Invalid value, can't be any of: %(values)s."
+msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:419
+msgid "Not a valid choice"
+msgstr "Keine gültige Auswahl"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
+msgid "Not a valid list"
+msgstr "Keine gültige Liste"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
+msgid "Invalid CSRF Token"
+msgstr "Ungültiger CSRF Token"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
+msgid "CSRF token missing"
+msgstr "CSRF Token fehlt"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
+msgid "CSRF failed"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
+msgid "CSRF token expired"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
+msgid "Please input a date/time value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
+msgid "Invalid date/time input"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
+msgid "Already exists."
+msgstr "E-Mail Adresse exisitert bereits"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:412
+msgid "Invalid Choice: could not coerce"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:445
+msgid "Invalid choice(s): one or more data inputs could not be coerced"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:452
+#, python-format
+msgid "'%(value)s' is not a valid choice for this field"
+msgstr "'%(value)' ist keine gültige Auswahl für dieses Feld"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:507
+msgid "Not a valid integer value"
+msgstr "Kein gültiger Zahlenwert"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:554
+msgid "Not a valid decimal value"
+msgstr "Kein gültiger Zahlenwert"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:581
+msgid "Not a valid float value"
+msgstr "Kein gültiger Gleitkommawert"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:632
+msgid "Not a valid datetime value"
+msgstr "Keine gültige Datumseingabe"
+
+#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
+msgid "Not a valid date value"
+msgstr "Keine gültige Datumseingabe"
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %}{{_('remove account')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('remove account')}}</h1>{% endblock %}
+
+{% block content %}
+
+<div>
+    <p>{{ _('remove account notes') }}</p>
+    <form method="POST">
+        {{ form.csrf }}
+        {{ input(form.password) }}
+        {{ button(_('remove account'), True) }}
+    </form>
+</div>
+
+{% endblock %}

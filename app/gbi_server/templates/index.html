@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "macros/map.html" import add_wmts_layers, add_basic_layer %}
+
+{% block title %} {{_('home')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('Welcome to GBI Server')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        {% if not g.user.is_anonymous() %}
+            <ul>
+                <li><a href="{{ url_for('maps.wmts') }}">{{ _('WMTS map') }}</a>
+                   <p class="help-block"> {{ _('info text wmts map') }}</p>
+                </li>
+                <li><a href="{{ url_for('maps.wfs_edit') }}">{{ _('WFS Edit') }}</a>
+                   <p class="help-block"> {{ _('info text wfs edit') }}</p>
+                </li>
+                {% if user.is_consultant %}
+                <li><a href="{{ url_for('boxes.overview') }}">{{ _('overview over all boxes') }}</a>
+                    <p class="help-block"> {{ _('info text boxesoverview') }}</p>
+                </li>
+                {% endif %}
+                <li><a href="{{ url_for('boxes.files', box_name='consultant') }}">{{ _('consultantbox') }}</a>
+                   <p class="help-block"> {{ _('info text consultantbox') }}</p>
+                </li>
+                <li><a href="{{ url_for('boxes.files', box_name='customer') }}">{{ _('customerbox') }}</a>
+                   <p class="help-block"> {{ _('info text customerbox') }}</p>
+                </li>
+                <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('gbi client download') }}</a>
+                   <p class="help-block"> {{ _('info text gbi client download') }}</p>
+                </li>
+                <li>
+                    <a href="{{ url_for('static', filename='pdf/usermanual-gbi-server.pdf') }}">{{ _('gbi user manual') }}</a>
+                   <p class="help-block"> {{ _('user manual') }}</p>
+                </li>
+            </ul>
+        {% else %}
+        <p>{{ _('info text gbi client first page', login_url=url_for('user.login'),
+            createuser_url=url_for('user.new')) }}
+        </p>
+        {% endif %}
+        <hr>
+        <div class="span11">
+            <div class="map" id='map' style="height:400px; border: 1px solid black"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
+    <script type="text/javascript">
+        {{ add_basic_layer() }}
+        {{ add_wmts_layers(layers, current_user) }}
+        $(document).ready(function() {
+            init_map();
+        });
+    </script>
+{% endblock %}
+

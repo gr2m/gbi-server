@@ -1,0 +1,7 @@
+{{_('password recover mail intro')}}
+
+{{_('password recover mail instructions', url=recover.url) }}
+
+{{_('mail regards')}}
+
+{{_('mail footer')}}

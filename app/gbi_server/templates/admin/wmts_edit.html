@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, textarea, button %}
+
+{% block title %}
+    {% if id %}
+        {{_('edit WMTS')}}
+    {% else %}
+        {{_('create WMTS')}}
+    {% endif %}
+{% endblock %}
+
+{% block content_head %}
+    <h1>
+        {% if id %}
+            {{_('edit WMTS')}}
+        {% else %}
+            {{_('create WMTS')}}
+        {% endif %}
+    </h1>
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <form method="POST" class="form-horizontal">
+    {{ form.csrf }}
+        <fieldset class="span5 offset1">
+            {{ input(form.name) }}
+            {{ input(form.title) }}
+            {{ input(form.url) }}
+            {{ input(form.layer) }}
+            {{ input(form.format) }}
+            {{ input(form.srs) }}
+            {{ input(form.matrix_set) }}
+            {{ input(form.is_visible) }}
+        </fieldset>
+        <fieldset class="span5">
+            {{ textarea(form.view_coverage, rows=6, cols=6, class='span8') }}
+            {{ input(form.view_level_start) }}
+            {{ input(form.view_level_end) }}
+            {{ input(form.is_background_layer) }}
+            {{ input(form.is_transparent) }}
+            {{ input(form.is_public) }}
+        </fieldset>
+        <fieldset class="span9 pagination-centered">
+            {{ button(_('save'), True) }}
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

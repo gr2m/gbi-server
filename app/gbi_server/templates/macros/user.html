@@ -1,0 +1,33 @@
+{% macro user_detail(user, address) %}
+    <dl class="dl-horizontal">
+        <dt>{{ _('email') }}</dt>
+        <dd>{{ user.email }}</dd>
+
+        <dt>{{ _('type') }}</dt>
+        <dd>{{ user.type_name }}</dd>
+
+        <dt>{{ _('registered') }}</dt>
+        <dd>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</dd>
+
+        <dt>{{ _('last login') }}</dt>
+        <dd>{% if user.last_login %} {{ user.last_login.strftime('%d.%m.%Y %H:%M ') }} {% endif %}&nbsp;</dd>
+        {% if user.is_customer %}
+        <dt>{{ _('florlp name') }}</dt>
+        <dd>{{ user.florlp_name }}</dd>
+        {% endif %}
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>{{ _('address') }}</dt>
+        <dd>
+            {{ user.realname }}<br>
+            {{ address['street'] }} {{ address['housenumber'] }}<br>
+            {{ address['zipcode'] }} {{ address['city'] }}
+        </dd>
+    </dl>
+{% endmacro %}
+
+{% macro tooltip(content, html=False) %}
+ <a href='#' class="tooltip-icon" rel='tooltip' data-html='{{ html}} ' title='{{ content }}'>
+    <span class='icon-info-sign'></span>
+ </a>
+{% endmacro %}

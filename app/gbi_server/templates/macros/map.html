@@ -1,0 +1,109 @@
+{% macro add_basic_layer() -%}
+    var basic = new OpenLayers.Layer.Image('{{_('white background map')}}',
+        '{{ url_for('static', filename='img/blank.gif') }}',
+        new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
+        new OpenLayers.Size(500, 500), {
+            maxResolution: 156543.033928
+        }
+    );
+{%- endmacro %}
+
+{% macro add_wmts_layers(layers, user) -%}
+    var max_extent = new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34);
+    var zoom_levels = 18;
+    var sources = {};
+    var has_visible_baselayer = false;
+    {% for layer in layers %}
+        {% if layer.is_baselayer and layer.view_level_end %}
+        zoom_levels = {{ layer.view_level_end }};
+        {% endif %}
+        sources[{{ layer.id }}] = new OpenLayers.Layer.WMTS({
+            name: '{{ layer.title }}',
+            url: '{{ url_for('authproxy.tile_proxy') }}',
+            getURL: tileUrl,
+            layer: '{{ layer.layer }}',
+            matrixSet: '{{ layer.matrix_set }}',
+            format: '{{ layer.format }}',
+            style: 'default',
+            {% if layer.bbox %}
+                restrictedExtent: new OpenLayers.Bounds{{ layer.bbox }},
+            {% endif %}
+            maxExtent: max_extent,
+            isBaseLayer: {{ layer.is_background_layer|tojson }},
+            visibility: {{ layer.is_visible|tojson }},
+            transparent: {{ layer.is_transparent|tojson }},
+            requestEncoding: 'REST'
+        });
+        {% if layer.is_visible and layer.is_background_layer %}
+            has_visible_baselayer = true;
+        {% endif %}
+    {% endfor %}
+{%- endmacro %}
+
+{% macro add_wfs_layers(wfs_layers) -%}
+    OpenLayers.ProxyHost = "{{ url_for('proxy.proxy_action') }}";
+    var wfs_sources = [];
+
+    {% for wfs_layer in wfs_layers %}
+        var saveStrategy{{ wfs_layer['id'] }} = new OpenLayers.Strategy.Save()
+        saveStrategy{{ wfs_layer['id'] }}.events.register("success", '', wfs_save_success);
+        saveStrategy{{ wfs_layer['id'] }}.events.register("fail", '', wfs_save_fail);
+
+        wfs_sources.push(new OpenLayers.Layer.Vector("{{ wfs_layer['name'] }}", {
+            strategies: [
+            {% if wfs_layer['display_in_layerswitcher'] %}
+                new OpenLayers.Strategy.BBOX({ratio: 1})
+            {% else %}
+                new OpenLayers.Strategy.Fixed()
+            {% endif %}
+            {% if wfs_layer['writable'] %}
+                , saveStrategy{{ wfs_layer['id'] }}
+                ],
+                styleMap: rw_style_map,
+                writable: true,
+            {% else %}
+                ],
+                styleMap: ro_style_map,
+                writable: false,
+            {% endif %}
+            visibility: false,
+            displayInLayerSwitcher: {{ wfs_layer['display_in_layerswitcher']|tojson|safe}},
+            projection: new OpenLayers.Projection("EPSG:3857"),
+            protocol: new OpenLayers.Protocol.WFS({
+                version: "1.1.0_ordered",
+                srsName: "{{ wfs_layer['srs'] }}",
+                url: "{{ wfs_layer['url']|safe }}",
+                featureNS :  "{{ wfs_layer['feature_ns'] }}",
+                featureType: "{{ wfs_layer['layer'] }}",
+                geometryName: "{{ wfs_layer['geometry_field'] }}",
+                schema: "{{ wfs_layer['url']|safe }}service=wfs&request=DescribeFeatureType&version={{ wfs_layer['wfs_version'] }}&typename={{ wfs_layer['typename'] }}:{{ wfs_layer['layer'] }}",
+                {% if wfs_layer['max_features'] %}
+                maxFeatures: {{ wfs_layer['max_features'] }},
+                {% endif %}
+                typename: '{{ wfs_layer['typename'] }}:{{ wfs_layer['layer'] }}'
+            })
+        }));
+    {% endfor %}
+{%- endmacro %}
+
+{% macro add_geojson_layer(layers) -%}
+    var geojson_sources = [];
+    var geojson_format = new OpenLayers.Format.GeoJSON();
+    {% for layer in layers %}
+        geojson_sources.push(
+            new OpenLayers.Layer.Vector("{{ layer.name}}", {
+                styleMap: {% if layer.readonly %}ro_style_map{%else%}rw_style_map{%endif%},
+                displayInLayerSwitcher: true,
+                read_only: {{ layer.readonly|tojson|safe }}
+        }));
+        feature_collection = {
+           'type': 'FeatureCollection',
+           'features': {{layer.features|tojson|safe }}
+        }
+        geojson_sources[geojson_sources.length-1].addFeatures(
+            geojson_format.read(feature_collection)
+        );
+    {% endfor %}
+{%- endmacro %}
+
+

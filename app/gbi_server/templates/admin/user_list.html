@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} {{_('user list')}} {% endblock %}
+
+{% block content_head %}<h1>{{ _('user list') }}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>{{ _('email') }}</th>
+                    <th>{{ _('type') }}</th>
+                    <th>{{ _('registered') }}</th>
+                    <th>{{ _('status') }}</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.type_name }}</td>
+                    <td>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</td>
+                    <td>
+                        {% if user.active %}
+                            {{ _('active') }}
+                        {% elif user.verified %}
+                            {{ _('verified') }}, {{ _('not active')}}
+                        {% else %}
+                            {{ _('not verified') }}
+                        {% endif %}
+                    </td>
+                    <td><a class="btn btn-small" href="{{ url_for('admin.user_detail', id=user.id) }}">{{ _('user details') }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

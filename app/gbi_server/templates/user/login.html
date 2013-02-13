@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %}{{_('login')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('login')}}</h1>{% endblock %}
+
+{% block content %}
+
+<div class="span12">
+    <form method="POST">
+        {{ form.csrf }}
+        {{ input(form.email) }}
+        {{ input(form.password) }}
+        {{ button(_('login'), True) }}
+        <p><a href="{{ url_for('user.recover') }}">{{_('lost password?')}}</a></p>
+    </form>
+    <a class="btn btn-success" href="{{ url_for('user.new') }}">{{_('create new account')}}</a></p>
+</div>
+
+{% endblock %}

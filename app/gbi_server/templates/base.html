@@ -1,0 +1,87 @@
+{% from "macros/user.html" import tooltip %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GBI Server {% block title %} {% endblock %}</title>
+
+        {% assets "libs-css" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+
+        {% block head %}{% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="/">{{ _('GBI Server') }}</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a class="nav" href="/">{{ _('home') }}</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            {% if not g.user or g.user.is_anonymous() %}
+                                <li><a class="nav" href="{{ url_for('user.new') }}">{{ _('create account') }}</a></li>
+                                <li><a class="nav" href="{{ url_for('user.login') }}">{{ _('login') }}</a></li>
+                            {% else %}
+                                {% if g.user.is_admin %}
+                                <li><a class="nav" href="{{ url_for('admin.index') }}">{{ _('administration') }}</a></li>
+                                {% endif %}
+                           <li><a href="{{ url_for('user.index') }}">{{ _('user settings') }}</a></li>
+                           <li><a class="nav" href="{{ url_for('user.logout') }}">{{ _('logout') }}</a></li>
+                       {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="head">
+                {% block content_head %}{% endblock %}
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ css_alert_category(category) }}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+            <hr>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="pull-right">Copyright by <a href='http://omniscale.de' target="_blank">Omniscale</a></p>
+                </div>
+            </footer>
+        </div>
+        {% assets "libs-js" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/base.js') }}"></script>
+        <script type="text/javascript">
+            var openlayers_theme_url = "{{ url_for('static', filename='css/openlayers.2.12.css') }}";
+            var openlayers_image_path = "{{ url_for('static', filename='img/openlayers/') }}";
+            var openlayers_blank_image = "{{ url_for('static', filename='img/blank.gif') }}";
+        </script>
+        <script type="text/javascript">
+            $('.tooltip-icon').tooltip({
+                animation: false,
+                delay: { show: 300, hide: 100 },
+                placement: 'right',
+                html: false
+            })
+        </script>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>
+

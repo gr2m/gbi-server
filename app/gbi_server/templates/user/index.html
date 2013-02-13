@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% from "macros/user.html" import user_detail %}
+
+{% block title %} {{_('User settings')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('User settings')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span6">
+        {{ user_detail(user, user.get_address()) }}
+
+        <h2>{{ _('edit user settings') }}</h2>
+        <a class="btn btn-small" href="{{ url_for('user.edit_address') }}">
+            {{ _('edit address') }}
+        </a>
+        <span class="help-block"><small>{{ _('edit address help text') }}</small></span>
+
+        <a class="btn btn-small" href="{{ url_for('user.edit_password') }}">
+            {{ _('edit password') }}
+        </a>
+        <span class="help-block"><small>{{ _('edit password help text') }}</small></span>
+
+        <a class="btn btn-small" href="{{ url_for('user.remove') }}">
+            {{ _('remove account') }}
+        </a>
+        <span class="help-block"><small>{{ _('remove account help text') }}</small></span>
+
+        {% if current_user.is_customer %}
+        <a class="btn btn-small" href="{{ url_for('user.refresh_florlp') }}">
+            {{ _('Refresh florlp data') }}
+        </a>
+        <span class="help-block"><small>{{ _('refresh florlp data help text') }}</small></span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

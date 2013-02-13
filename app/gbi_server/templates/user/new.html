@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button, checkbox %}
+
+{% block title %}{{_('create new account')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('create new account')}}</h1>{% endblock %}
+
+{% block content %}
+
+<div>
+    <form class="form-horizontal" method="POST">
+        {{ form.csrf }}
+        {{ input(form.realname) }}
+        {{ input(form.street) }}
+        {{ input(form.housenumber) }}
+        {{ input(form.zipcode) }}
+        {{ input(form.city) }}
+        {{ input(form.type) }}
+        {{ input(form.email) }}
+        {{ input(form.password) }}
+        {{ input(form.password2) }}
+        {{ input(form.florlp_name) }}
+        {{ input(form.florlp_password) }}
+        {{ checkbox(form.terms_of_use) }}
+        {{ button(_('create accout'), True) }}
+    </form>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    var customer_id = {{ customer_id }};
+    $(document).ready(function() {
+        $("#type").change(function(){
+            if ($(this).val() == customer_id) {
+                $("#florlp_name").parent().parent().show();
+                $("#florlp_password").parent().parent().show();
+            } else {
+                $("#florlp_name").parent().parent().hide();
+                $("#florlp_password").parent().parent().hide();
+            }
+        });
+        $("#type").change();
+    });
+</script>
+{% endblock %}

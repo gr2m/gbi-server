@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% from "macros/map.html" import add_basic_layer, add_wfs_layers, add_wmts_layers %}
+
+{% block title %}{{ _('WFS Edit') }}{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/openlayers.wfst_ordered.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map_wfs.js') }}"></script>
+    <script type="text/javascript">
+        {{ add_basic_layer() }}
+        {{ add_wmts_layers(layers, user) }}
+        {{ add_wfs_layers(wfs) }}
+        var SAVE_FAILED_MSG = "{{ _('save feautre not possible') }}"
+        var SAVE_SUCCESSFULL_MSG = "{{ _('save feature successfull') }}"
+        var read_only_layer_name = "{{read_only_layer_name}}";
+        var featurecollection = {
+              "type": "FeatureCollection",
+              "features":{{read_only_features|tojson|safe}}
+        };
+        var read_only_schema = {{read_only_schema|tojson|safe}};
+        var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer_name) }}";
+        var write_layer_name = "{{editable_layer_name}}";
+        var search_layer_name = "{{ search_layer_name }}";
+        var search_property = "{{search_property}}";
+        var search_min_length = {{search_min_length}};
+        var search_prefix = "{{search_prefix}}";
+        $(document).ready(function() {
+            var base_map = init_map();
+            init_wfs(base_map);
+            base_map.zoomToExtent(new OpenLayers.Bounds{{data_extent}});
+        });
+    </script>
+{% endblock %}
+
+{% block content_head %}<h1>{{_('WFS Edit')}}</h1>{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="map span8" id='map'></div>
+        <div class="span4 wfs_edit">
+            <h2><small>{{ _('search features') }}</small></h2>
+            <p class="help_text">
+                <small>{{ _('search help text', search_length=search_min_length) }}</small>
+            </p>
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="search_value"><span>{{ _('search_label') }}{{ tooltip(_('tooltip - search')) }}</span></label>
+
+                </div>
+                <div class="controls">
+                    <input type="text" id="search_value" name="search_value" placeholder="0000-000-00000/000" />
+                </div>
+                <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
+            </div>
+            <button class="btn btn-small" id="add_search">{{_('add search')}}</button>
+            <button class="btn btn-small" id="remove_search">{{_('remove search')}}</button>
+            <hr>
+            <h2><small>{{ _('feature settings') }}</small></h2>
+                {{ _('feature help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
+            <h4><small>{{ _('feature operations') }}</small>
+            {{ tooltip(_('tooltip - feature operations'))}}
+            </h4>
+            <button class="btn btn-small feature_control" id="copy_feature">{{ _('copy feature') }}</button>
+            <button class="btn btn-small feature_control" id="edit_feature">{{ _('edit feature') }}</button>
+            <button class="btn btn-small feature_control" id="delete_feature">{{ _('delete feature') }}</button>
+            <hr>
+            <button class="btn btn-small" id="save_changes">{{ _('save changes') }}
+                {{ tooltip(_('tooltip - button save changes')) }} </button>
+            <hr>
+
+            <div id="wfs_response" class="alert">
+                <span id="wfs_response_message"></span>
+            </div>
+            <h4>{{ _('attributes') }}
+                {{ tooltip(_('tooltip - attrbibutes')) }}
+            </h4>
+            <form id='feature_attributes' class="form-horizontal"></form>
+            <button class="btn btn-small" id="edit_attributes_button">{{ _('save attributes') }}</button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% from "macros/user.html" import user_detail %}
+{% from "macros/forms.html" import input, button %}
+
+{% block title %} {{_('remove user')}} {% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="head">
+            <h1>{{_('remove user')}}</h1>
+            {{ user_detail(user, user.get_address()) }}
+            <form method="POST">
+                {{ button(_('remove'), True) }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

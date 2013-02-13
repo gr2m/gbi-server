@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button, button_link %}
+
+{% block title %} {{_('wfs layer and editor choice')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('wfs layer and editor choice')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span5">
+        <p> {{_('wfs editor choice infotext')}}</p>
+        <form method="POST">
+            {{ form.csrf }}
+            {% if form.layer %}
+                {{ input(form.layer) }}
+            {% endif %}
+            {{ form.external_editor }}
+            {{ form.edit_form }}
+            {{ button(_('edit internal'), True, 'internal') }}
+            {{ button(_('edit external'), True, 'external') }}
+            {{ button(_('remove selected layer'), False, 'remove_layer') }}
+        </form>
+    </div>
+    <div class="span5">
+        <p> {{_('create wfs layer infotext')}}</p>
+        <form method="POST">
+            {{ add_layer_form.csrf }}
+            {{ input(add_layer_form.new_layer) }}
+            {{ add_layer_form.add_form }}
+            {{ button(_('add layer'), True, 'add_layer') }}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        var not_removable_layer = "{{not_removable_layer}}";
+        var remove_url = "{{url_for('maps.wfs_remove_layer', layer='')}}";
+        $(document).ready(function() {
+            $('#internal').click(function() {
+                $('#edit_form').val(1);
+                $('#external_editor').val(0);
+            });
+            $('#external').click(function() {
+                $('#edit_form').val(1);
+                $('#external_editor').val(1);
+            });
+            $('#add_layer').click(function() {
+                $('#add_form').val(1);
+            });
+            $('#layer').change(function() {
+                if($(this).val() == null || $(this).val() == not_removable_layer) {
+                    $('#remove_layer').attr('disabled', 'disabled');
+                } else {
+                    $('#remove_layer').removeAttr('disabled');
+                }
+            });
+            $('#remove_layer').click(function() {
+                window.location = remove_url + $('#layer').val();
+                return false;
+            });
+            $('#layer').change();
+        });
+    </script>
+{% endblock %}

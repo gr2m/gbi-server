@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('overview over all boxes') }}{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block content_head %}
+    <h1>{{_('overview over all boxes')}}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>{{ _('name') }}</th>
+                    <th>{{ _('email') }}</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.realname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{{ url_for('boxes.files', box_name='customer', user_id=user.id) }}">{{ _('goto customer box') }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('boxes.files', box_name='consultant', user_id=user.id) }}">{{ _('goto consultant box') }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

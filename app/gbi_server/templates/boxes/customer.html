@@ -1,0 +1,14 @@
+{% extends "boxes/base.html" %}
+
+{% block title %}{{ _('customerbox title') }}{% endblock %}
+
+{% block content_head %}
+    <h1>
+    {% if current_user.is_consultant %}
+      {{_('customerbox for')}}
+        {{ user.realname }} ( {{ user.email }} ) {{ tooltip(_('tooltip - customerbox for consultant ')) }}
+    {% else %}
+      {{_('customerbox')}} {{ tooltip(_('tooltip - customerbox for customer ')) }}
+    {% endif %}
+    </h1>
+{% endblock %}

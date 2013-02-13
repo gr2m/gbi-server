@@ -1,0 +1,4 @@
+include setup.py
+
+recursive-include gbi_server *.*
+recursive-exclude gbi_server *.pyc *.rej *.orig *.db *.bak

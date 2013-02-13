@@ -1,0 +1,215 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  color: black;
+  text-align: left;
+}
+
+.inline {
+    display: inline;
+}
+
+.info {
+    display: none;
+}
+
+.head {
+  padding: 20px;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.head h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: inherit;
+}
+
+#wfs_response, #no_search_result {
+    display: none;
+    padding: 5px;
+}
+
+/** Map css **/
+.map {
+    height: 768px;
+}
+
+/** Bootstrap overwrites / customizations **/
+
+.head {
+    margin-bottom: 20px;
+}
+
+.wfs_edit .form-horizontal .control-label {
+    width: 90px;
+}
+
+.wfs_edit .form-horizontal .controls {
+    margin-left: 110px;
+}
+
+/* Overwrite max-width from bootstrap */
+.map img {
+    max-width: 512px;
+}
+
+/* Overwrite line-height from bootstrap */
+.olControlPanZoomBar div {
+    line-height: normal;
+}
+
+/** OpenLayers overwrites / customizations **/
+.olImageLoadError {
+    background-color: transparent;
+    background-image: url(../img/blank.gif);
+}
+
+/* Layer switcher */
+.olControlLayerSwitcher {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 20em;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    font-size: smaller;
+    color: white;
+    background-color: transparent;
+}
+
+.olControlLayerSwitcher label {
+    display: inline;
+    vertical-align: bottom;
+}
+
+.olControlLayerSwitcher .layersDiv {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    background-color: darkblue;
+}
+
+.olControlLayerSwitcher .layersDiv .baseLbl,
+.olControlLayerSwitcher .layersDiv .dataLbl {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+
+.olControlLayerSwitcher .layersDiv .baseLayersDiv,
+.olControlLayerSwitcher .layersDiv .dataLayersDiv {
+    padding-left: 10px;
+}
+
+.olControlLayerSwitcher .maximizeDiv,
+.olControlLayerSwitcher .minimizeDiv {
+    width: 18px;
+    height: 18px;
+    top: 5px;
+    right: 0;
+    cursor: pointer;
+}
+
+/* Draw Control */
+
+.customEditingToolbar {
+    float: right;
+    left: 60px;
+    height: 30px;
+    width: 68px;
+}
+.customEditingToolbar div {
+    float: right;
+    margin: 5px;
+    width: 24px;
+    height: 24px;
+}
+.olControlNavigationItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -103px -23px;
+}
+.olControlNavigationItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -103px -0px;
+}
+.olControlDrawFeaturePolygonItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -26px 0px;
+}
+.olControlDrawFeaturePolygonItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -26px -23px ;
+}
+.olControlModifyFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -128px -23px;
+}
+.olControlModifyFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -128px 0px;
+}
+.olControlDeleteFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -203px -23px;
+}
+.olControlDeleteFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -203px 0px;
+}
+div.olControlSaveFeaturesItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -178px -23px;
+}
+div.olControlSaveFeaturesItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -178px 0px;
+}
+div.olControlSelectFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -253px -23px;
+}
+div.olControlSelectFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -253px 0px;
+}
+div.olControlCopyFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -77px -23px;
+}
+div.olControlCopyFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -77px 0px;
+}

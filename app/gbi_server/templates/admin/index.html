@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} {{_('Admin')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('admin')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <ul>
+            <li><a href="{{ url_for('admin.user_list') }}">{{ _('user list') }}</a></li>
+            <li><a href="{{ url_for('admin.create_user') }}">{{ _('create user') }}</a></li>
+        </ul>
+            <hr>
+        <ul>
+            <li><a href="{{ url_for('admin.wmts_list') }}">{{ _('WMTS list') }}</a></li>
+            <li><a href="{{ url_for('admin.wmts_edit') }}">{{ _('create WMTS') }}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %}{{_('password recover')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('password recover')}}</h1>{% endblock %}
+
+{% block content %}
+<div>
+    <form method="POST">
+        {{ form.csrf }}
+        {{ input(form.email) }} 
+        {{ button(_('recover'), True) }}
+    </form>
+</div>
+{% endblock %}

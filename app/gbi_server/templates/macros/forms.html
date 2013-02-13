@@ -1,0 +1,53 @@
+{% macro render_errors(field) %}
+{% if field.errors %}
+<ul class="errors">
+    {% for error in field.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}
+
+{% macro input(field) -%}
+<div class="control-group {% if field.errors %}error{% endif %}">
+    <label class="control-label" for="{{ field.id }}"><span>{{ field.label.text|safe }}{%- if field.flags.required -%}*{%- endif %} :</span></label>
+    <div class="controls">
+        {{ field(**kwargs) }} {{ render_errors(field) }}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro checkbox(field) -%}
+<div class="control-group {% if field.errors %}error{% endif %}">
+    <div class="controls">
+        <label class="checkbox" for="{{ field.id }}">
+        <span>{{ field.label.text|safe }}{%- if field.flags.required -%}*{%- endif %}</span>
+            {{ field(**kwargs)|safe }}
+        </label>
+         {{ render_errors(field) }}
+    </div>
+
+</div>
+{%- endmacro %}
+
+
+{%- macro textarea(field, value='', rows=7, cols=40, class='') -%}
+<div class="control-group {% if field.errors %}error{% endif %}">
+    <label class="control-label" for="{{ field.id }}"><span>{{ field.label.text|safe }}{%- if field.flags.required -%}*{%- endif %} :</span></label>
+    <div class="controls">
+        {{ field(value=value, rows=rows, cols=cols, class=class) }} {{ render_errors(field) }}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro button(text, submit=False, id=False, btn_class=None) -%}
+<div class="control-group">
+    <div class="controls">
+        <button {% if id %} id="{{id}}"{% endif %} {% if submit %}type="submit"{% endif %} class="btn btn-small{% if btn_class %} btn-{{btn_class}}{% endif %}">{{ text }}</button>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro button_link(text, target, id=False, btn_class=None) %}
+    <a href="{{ target }}" {% if id %}id="{{id}}"{% endif %} class="btn btn-small{% if btn_class %} btn-{{btn_class}}{% endif %}">{{ text }}</a>
+{%- endmacro %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import button_link %}
+
+{% block title %} {{_('wfs session')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('wfs session')}}</h1>{% endblock %}
+
+{% block content %}
+
+<div>
+    <p>{{ _(' wfs external editor info_text_1') }}.</p>
+    <p class="text-warning">
+        {{ _(' wfs external editor info_text_2 - not interneal') }}.
+    </p>
+    <p class="text-warning">
+        {{ _(' wfs external editor info_text_3 - save') }}.
+    </p>
+
+    <dl class="dl-horizontal">
+        <dt>WFS-URL</dt>
+        <dd>{{ wfs_session.url }}</dd>
+        <dt>WFS-Layer</dt>
+        <dd>{{ wfs_session.layer }}</dd>
+    </dl>
+    <hr>
+
+    {{ button_link(_('save and end wfs session'), url_for('maps.save_changes', layer=wfs_session.layer), 'save_session', btn_class='success')}}
+    {{ button_link(_('cancel and end wfs session'), url_for('maps.cancel_changes', layer=wfs_session.layer), 'cancel_session', btn_class='danger') }}
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,7 @@
+{{_('mail activated intro', email=user.email)}}
+
+{{_('mail activated content') }}
+
+{{_('mail regards')}}
+
+{{_('mail footer')}}

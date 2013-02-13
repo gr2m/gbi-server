@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{_('Email verification')}}{% endblock %}
+
+{% block content_head %}<h1>{{_('email verification')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="span12">
+	<div class="span6">
+	    <p>{{_('email for verification sent', verify_url=url_for('user.send_verifymail', id=user_id))}}</p>
+   		<a href="{{ url_for('user.login') }}" class="btn">{{_('goto login')}}</a>
+    </div>
+</div>
+{% endblock %}

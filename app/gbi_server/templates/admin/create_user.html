@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %} {{_('create user')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('create user')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <form method="POST">
+            {{ form.csrf }}
+            {{ input(form.realname) }}
+            {{ input(form.street) }}
+            {{ input(form.housenumber) }}
+            {{ input(form.zipcode) }}
+            {{ input(form.city) }}
+            {{ input(form.email) }}
+            {{ input(form.type) }}
+            {{ input(form.password) }}
+            {{ input(form.password2) }}
+            {{ input(form.florlp_name) }}
+            {{ input(form.verified) }}
+            {{ input(form.activate) }}
+            {{ button(_('create'), True) }}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/create_user.js') }}"></script>
+{% endblock %}

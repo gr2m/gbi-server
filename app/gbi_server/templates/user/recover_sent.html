@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{_('password recover')}}{% endblock %}
+
+{% block content_head %}<h1 id="pw_recover_sent">{{_('password recover')}}</h1>{% endblock %}
+
+{% block content %}
+<div>
+    <p>{{_('recover mail sent')}}</p>
+    <a href="{{ url_for('user.login') }}">{{_('goto login')}}</a>
+</div>
+{% endblock %}

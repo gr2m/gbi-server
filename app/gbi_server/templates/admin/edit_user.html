@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, button %}
+
+{% block title %} {{_('Edit user')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('Edit user')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <form method="POST">
+            {{ form.csrf }}
+            {{ input(form.realname) }}
+            {{ input(form.street) }}
+            {{ input(form.housenumber) }}
+            {{ input(form.zipcode) }}
+            {{ input(form.city) }}
+            {{ input(form.florlp_name) }}
+            {{ button(_('save'), True) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+libs-js:
+  filters: jsmin
+  output: cache/libs.js
+  contents:
+    - js/lib/jquery-1.8.1.min.js
+    - js/lib/bootstrap.min.js
+    - js/lib/json2.js
+    - js/lib/jquery.validate.min.js
+    - js/lib/OpenLayers.js
+    #- js/lib/OpenLayers-2.12/lib/OpenLayers.js
+
+libs-css:
+  filters: cssmin
+  output: cache/libs.css
+  contents:
+    - css/bootstrap.min.css
+    - css/openlayers.2.12.css
+
+site-css:
+  filter: cssmin
+  output: cache/site.css
+  contents:
+    - css/site.css

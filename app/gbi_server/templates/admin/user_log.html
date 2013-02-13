@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% from "macros/user.html" import user_detail %}
+
+{% block title %} {{_('user details')}} {% endblock %}
+
+{% block content_head %}<h1>{{ _('user log') }}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table task-overview table-striped">
+            <thead>
+                <tr>
+                    <th>{{ _('time') }}</th>
+                    <th>{{ _('action') }}</th>
+                    <th>{{ _('format') }}</th>
+                    <th>{{ _('srs') }}</th>
+                    <th>{{ _('mapping') }}</th>
+                    <th>{{ _('source') }}</th>
+                    <th>{{ _('layer') }}</th>
+                    <th>{{ _('zoom_level_start') }}</th>
+                    <th>{{ _('zoom_level_end') }}</th>
+                    <th>{{ _('refreshed') }}</th>
+                    <th>{{ _('geometry') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log_line in logs %}
+                <tr>
+                    <td>{{ log_line[0].time or '' }}</td>
+                    <td>{{ log_line[0].action or '' }}</td>
+                    <td>{{ log_line[0].format or '' }}</td>
+                    <td>{{ log_line[0].srs or '' }}</td>
+                    <td>{{ log_line[0].mapping or '' }}</td>
+                    <td>{{ log_line[0].source or '' }}</td>
+                    <td>{{ log_line[0].layer or '' }}</td>
+                    <td>{{ log_line[0].zoom_level_start or '' }}</td>
+                    <td>{{ log_line[0].zoom_level_end or '' }}</td>
+                    <td>{{ log_line[0].refreshed or '' }}</td>
+                    <td>{{ log_line[1] or ''}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

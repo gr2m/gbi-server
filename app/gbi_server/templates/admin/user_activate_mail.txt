@@ -1,0 +1,7 @@
+{{_('activate user mail intro')}}
+
+{{ url_for('admin.user_detail', id=user.id, _external=True) }}
+
+{{_('mail regards')}}
+
+{{_('mail footer')}}
