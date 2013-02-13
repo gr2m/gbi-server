@@ -3,7 +3,7 @@ Configuration
 
 The application uses the configuration from the default configuration (``app/gbi_server/config.py``) but overwrite these values.
 
-``python manage.py runserver`` will load the ``gbi_local_develop.conf`` file if it is present in the local directory.
+``python manage.py runserver`` will load the ``gbi_local_develop.conf`` file if it is present in the local directory (see ``app/example-gbi_local_develop.conf``).
 
 You can also pass a configuration class to the ``create_app`` function for deployments. See ``app/example-config.py``.
 
