@@ -8,6 +8,7 @@ GBI Server Developer Documentation
    configuration
    development
    translation
+   static_pages
 
 Indices and tables
 ==================
