@@ -30,12 +30,33 @@ from cStringIO import StringIO
 import logging
 log = logging.getLogger(__name__)
 
-# URLs for all "API" end-points
-FLORLP_BASE_URL = "http://demo.flo.rlp.de/demo/"
+# Options for all "API" end-points
+
+# Options for Demo Portal
+# FLORLP_BASE_URL = "http://demo.flo.rlp.de/demo/"
+# FLORLP_LOGIN_URL = FLORLP_BASE_URL + 'frames/login.php'
+# FLORLP_USER_KEY = "name"
+# FLORLP_PASSWORD_KEY = "password"
+# FLORPL_SESSION_ID_KEY = "PHPSESSID"
+# FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=FLOrlp_DEMO&&mb_myBBOX='
+# FLORLP_LOGIN_URL = FLORLP_BASE_URL + 'frames/login.php'
+# FLORLP_LOGOUT_URL = FLORLP_BASE_URL + 'php/mod_logout.php?guiID=FLOrlp_DEMO&elementID=logout'
+# FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=FLOrlp_DEMO&mb_myBBOX='
+# FLORLP_SHAPE_SCHLAG_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_shape.php'
+# FLORLP_SHAPE_FLURSTUECK_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_flstk_shape.php'
+# FLORLP_LOGIN_USERDATA_PAGE_VISIT_REQUIRED = False
+
+# Options for real FLOrlp Portal
+FLORLP_BASE_URL = "https://www.flo.rlp.de/flo/mapbender/"
+FLORLP_USER_KEY = "uid"
+FLORLP_PASSWORD_KEY = "pwd"
+FLORPL_SESSION_ID_KEY = "JSESSIONID"
 FLORLP_LOGIN_URL = FLORLP_BASE_URL + 'frames/login.php'
-FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=FLOrlp_DEMO&&mb_myBBOX='
+FLORLP_LOGOUT_URL = FLORLP_BASE_URL + 'php/mod_logout.php?guiID=FLOrlp_Landwirt_2011&elementID=logout'
+FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=FLOrlp_Landwirt_2011&mb_myBBOX='
 FLORLP_SHAPE_SCHLAG_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_shape.php'
 FLORLP_SHAPE_FLURSTUECK_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_flstk_shape.php'
+FLORLP_LOGIN_USERDATA_PAGE_VISIT_REQUIRED = True
 
 # regular expressions to detect available years and bboxes
 FLORLP_SCHLAG_BOX_RE = re.compile(r'mod_schlag_bbox\s=\s\'([0-9.,|]+)\'')
@@ -55,21 +76,49 @@ def create_florlp_session(username, password):
     Raises FLOrlpUnauthenticated if username/password did not match.
     """
     try:
-        resp = requests.post(FLORLP_LOGIN_URL, data={'name': username, 'password': password})
-    except requests.exceptions.RequestError, ex:
+        resp = requests.post(FLORLP_LOGIN_URL,
+            data={FLORLP_USER_KEY: username, FLORLP_PASSWORD_KEY: password},
+            allow_redirects=False,
+        )
+    except requests.exceptions.RequestException, ex:
+        log.debug('error while requesting session: %s', ex)
         raise FLOrlpError('unable to login: %s' % ex)
 
+    session = None
     # session as cookie
-    if 'PHPSESSID' in resp.cookies:
-        return {'PHPSESSID': resp.cookies['PHPSESSID']}
+    if FLORPL_SESSION_ID_KEY in resp.cookies:
+        session = {FLORPL_SESSION_ID_KEY: resp.cookies[FLORPL_SESSION_ID_KEY]}
+    else: # session in URL
+        url = urlparse(resp.url)
+        url_query = url_decode(url.query)
+        if FLORPL_SESSION_ID_KEY in url_query:
+            session = {FLORPL_SESSION_ID_KEY: url_query[FLORPL_SESSION_ID_KEY]}
 
-    # session in URL
-    url = urlparse(resp.url)
-    url_query = url_decode(url.query)
-    if 'PHPSESSID' in url_query:
-        return {'PHPSESSID': url_query['PHPSESSID']}
+    if not session:
+        log.debug('no session id returned for: %s (%s, %s, %s)',
+            username, resp.url, resp, resp.headers)
+        raise FLOrlpUnauthenticated()
 
-    raise FLOrlpUnauthenticated()
+    if FLORLP_LOGIN_USERDATA_PAGE_VISIT_REQUIRED:
+        # the first request is always intercepted and goes to the
+        # user data page (logged in as/address information)
+        # next request needs to go to login url again
+        authed_get(FLORLP_BASE_URL + '/url_does_not_matter', session)
+        authed_get(FLORLP_LOGIN_URL, session)
+
+    return session
+
+def remove_florlp_session(session):
+    """
+    Logout to make remove session on server.
+    Required since number of open sessions per user is limited.
+    """
+    try:
+        requests.get(FLORLP_LOGOUT_URL,
+            cookies=session,
+            allow_redirects=False)
+    except requests.exceptions.RequestException, ex:
+        log.debug('error while removing session: %s', ex)
 
 def authed_get(url, session, *args, **kw):
     """
@@ -78,7 +127,7 @@ def authed_get(url, session, *args, **kw):
     """
     kw['cookies'] = session
     resp = requests.get(url, *args, **kw)
-    if resp.url != url:
+    if resp.history:
         # got redirected to login because session cookie is invalid/expired
         raise FLOrlpUnauthenticated()
     return resp
@@ -99,8 +148,8 @@ def parse_schlag_bboxes(content):
     if not bboxs or not years:
         raise ValueError('bbox ando/or years not not found')
 
-    bboxs = bboxs.group(1).split('|')
-    years = years.group(1).split(',')
+    bboxs = [b for b in bboxs.group(1).split('|') if b]
+    years = [y for y in years.group(1).split(',') if y]
 
     if len(bboxs) != len(years):
         raise ValueError('number of bbox and years does not match')
@@ -124,7 +173,7 @@ def _download_shape(url, session, bbox, year, dest_dir):
         'BBOX': bbox,
         'JAHR': str(year)
     }
-    resp = authed_get(FLORLP_SHAPE_SCHLAG_URL, session, data=params)
+    resp = authed_get(FLORLP_SHAPE_SCHLAG_URL, session, params=params)
     zipfile = ZipFile(StringIO(resp.content), mode='r')
     shapename = None
     for zipinfo in zipfile.infolist():
@@ -185,7 +234,11 @@ def latest_schlag_features(session):
     return _latest_features(session, download_function=download_schlag_shape)
 
 def _latest_features(session, download_function):
-    year_bboxes = load_year_bboxes(session)
+    try:
+        year_bboxes = load_year_bboxes(session)
+    except ValueError, ex:
+        log.warn('unexpected florlp result: %s', ex)
+        raise
     latest_year = max(year_bboxes.keys())
     latest_bbox = year_bboxes[latest_year]
     try:
@@ -201,7 +254,22 @@ def _latest_features(session, download_function):
             log.warning('unable to remove temp dir:', ex)
 
 if __name__ == '__main__':
-    # print create_florlp_session('demo', 'demo')
-    session = {'PHPSESSID': u'7kuci16jivqutou9vho76dg124'}
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
 
-    print json.dumps(latest_schlag_features(session)[1], indent=4)
+    # session = {FLORPL_SESSION_ID_KEY: ''}
+    # session = create_florlp_session('demo', 'demo')
+    # try:
+    #     print load_year_bboxes(session)
+    # finally:
+    #     remove_florlp_session(session)
+
+    # session = {FLORPL_SESSION_ID_KEY: 'xxx'}
+    # remove_florlp_session(session)
+
+    session = create_florlp_session('01071...', '...')
+    print session
+    try:
+        print json.dumps(latest_schlag_features(session)[1], indent=4)
+    finally:
+        remove_florlp_session(session)

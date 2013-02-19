@@ -28,7 +28,10 @@ from gbi_server.model import User, WMTS, EmailVerification
 from gbi_server.lib.helper import send_mail
 
 from gbi_server.lib import florlp
-from gbi_server.lib.florlp import create_florlp_session, latest_schlag_features, FLOrlpUnauthenticated
+from gbi_server.lib.florlp import (
+    create_florlp_session, latest_schlag_features, FLOrlpUnauthenticated,
+    remove_florlp_session,
+)
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
 from gbi_server.lib.transform import transform_geojson
 
@@ -118,7 +121,10 @@ def new():
 
         if florlp_session:
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-            schema, feature_collection = latest_schlag_features(florlp_session)
+            try:
+                schema, feature_collection = latest_schlag_features(florlp_session)
+            finally:
+                remove_florlp_session(session)
             feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
             for layer in layers:
                 couch.store_layer_schema(layer, schema)
@@ -280,7 +286,11 @@ def refresh_florlp():
         except FLOrlpUnauthenticated:
             flash(_('Invalid florlp password'), 'error')
             return render_template("user/refresh_florlp.html", form=form)
-        schema, feature_collection = latest_schlag_features(florlp_session)
+        try:
+            schema, feature_collection = latest_schlag_features(florlp_session)
+        finally:
+            remove_florlp_session(session)
+
         feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
 
         init_user_boxes(user, current_app.config.get('COUCH_DB_URL'))

@@ -24,7 +24,9 @@ from json import loads
 from gbi_server import model
 from gbi_server.config import SystemConfig
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
-from gbi_server.lib.florlp import create_florlp_session, latest_schlag_features
+from gbi_server.lib.florlp import (
+    create_florlp_session, latest_schlag_features, remove_florlp_session,
+)
 from gbi_server.lib.transform import transform_geojson
 
 def db_objects():
@@ -106,7 +108,11 @@ def init_couchdb(config):
     couch = CouchDBBox(config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
     layers = [config.get('USER_READONLY_LAYER'), config.get('USER_WORKON_LAYER')]
     florlp_session = create_florlp_session("demo", "demo")
-    schema, feature_collection = latest_schlag_features(florlp_session)
+    try:
+        schema, feature_collection = latest_schlag_features(florlp_session)
+    finally:
+        remove_florlp_session(session)
+
     feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
     for layer in layers:
         couch.clear_layer(layer)
