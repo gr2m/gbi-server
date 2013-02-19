@@ -124,7 +124,7 @@ def new():
             try:
                 schema, feature_collection = latest_schlag_features(florlp_session)
             finally:
-                remove_florlp_session(session)
+                remove_florlp_session(florlp_session)
             feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
             for layer in layers:
                 couch.store_layer_schema(layer, schema)
@@ -289,7 +289,7 @@ def refresh_florlp():
         try:
             schema, feature_collection = latest_schlag_features(florlp_session)
         finally:
-            remove_florlp_session(session)
+            remove_florlp_session(florlp_session)
 
         feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
 
