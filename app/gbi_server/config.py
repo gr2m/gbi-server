@@ -108,6 +108,8 @@ class DefaultConfig(object):
 
     STATIC_PAGES_DIR = p.join(p.dirname(__file__), '..', 'pages')
 
+    FLORLP_SHP_SRS = 25832
+
 class SystemConfig(object):
     # name of the databases on the server
     # will be suffixed by the user id

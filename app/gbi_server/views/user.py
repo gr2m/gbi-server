@@ -29,7 +29,7 @@ from gbi_server.lib.helper import send_mail
 
 from gbi_server.lib import florlp
 from gbi_server.lib.florlp import (
-    create_florlp_session, latest_schlag_features, FLOrlpUnauthenticated,
+    create_florlp_session, latest_flursteuck_features, FLOrlpUnauthenticated,
     remove_florlp_session,
 )
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
@@ -128,10 +128,10 @@ def new():
         if florlp_session:
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
             try:
-                schema, feature_collection = latest_schlag_features(florlp_session)
+                schema, feature_collection = latest_flursteuck_features(florlp_session)
             finally:
                 remove_florlp_session(florlp_session)
-            feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
+            feature_collection = transform_geojson(from_srs=current_app.config.get('FLORLP_SHP_SRS'), to_srs=3857, geojson=feature_collection)
             for layer in layers:
                 couch.store_layer_schema(layer, schema)
                 couch.store_features(layer, feature_collection['features'])
@@ -288,11 +288,11 @@ def refresh_florlp():
             flash(_('Invalid florlp password'), 'error')
             return render_template("user/refresh_florlp.html", form=form)
         try:
-            schema, feature_collection = latest_schlag_features(florlp_session)
+            schema, feature_collection = latest_flursteuck_features(florlp_session)
         finally:
             remove_florlp_session(florlp_session)
 
-        feature_collection = transform_geojson(from_srs=31467, to_srs=3857, geojson=feature_collection)
+        feature_collection = transform_geojson(from_srs=current_app.config.get('FLORLP_SHP_SRS'), to_srs=3857, geojson=feature_collection)
 
         init_user_boxes(user, current_app.config.get('COUCH_DB_URL'))
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
