@@ -113,6 +113,12 @@ def new():
         db.session.add(verify)
         db.session.commit()
 
+        send_mail(
+            _("Email verification mail subject"),
+            render_template("user/verify_mail.txt", user=user, verify=verify, _external=True),
+            [user.email]
+        )
+
         couch_url = current_app.config.get('COUCH_DB_URL')
         if user.is_service_provider or user.is_customer:
             # create couch document and area boxes
@@ -134,11 +140,6 @@ def new():
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
             couch.store_layer_schema(current_app.config['USER_WORKON_LAYER'], florlp.base_schema())
 
-        send_mail(
-            _("Email verification mail subject"),
-            render_template("user/verify_mail.txt", user=user, verify=verify, _external=True),
-            [user.email]
-        )
 
         return redirect(url_for(".verify_wait", id=user.id))
 
