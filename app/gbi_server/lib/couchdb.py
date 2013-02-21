@@ -197,7 +197,7 @@ class CouchDBBox(CouchDB):
             return resp.json()
 
     def layer_url(self, layer, include_docs=False):
-        url = self.couchdb_url + '/_design/layers/_view/all?key=' + urllib.quote('"%s"' % layer)
+        url = self.couchdb_url + '/_design/layers/_view/all?key=' + urllib.quote('"%s"' % layer.encode('utf8'))
         if include_docs:
             url += '&include_docs=true'
         return url
