@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from sqlalchemy.orm import backref
 from geoalchemy import GeometryColumn, MultiPolygon, GeometryDDL
 from geoalchemy.postgis import PGComparator
 
@@ -26,7 +27,7 @@ class Log(db.Model):
     time = db.Column(db.DateTime, nullable=False)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = db.relationship('User', backref='logs')
+    user = db.relationship('User', backref=backref('logs', cascade="all,delete,delete-orphan"))
 
     action = db.Column(db.String(24), nullable=False)
 

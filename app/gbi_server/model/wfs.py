@@ -14,7 +14,7 @@
 # limitations under the License.
 
 from datetime import datetime
-
+from sqlalchemy.orm import backref
 from gbi_server.extensions import db
 
 class WFSSession(db.Model):
@@ -27,7 +27,7 @@ class WFSSession(db.Model):
     start_edit = db.Column(db.DateTime, default=datetime.utcnow)
     last_update = db.Column(db.DateTime, default=None)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = db.relationship('User', backref='wfs_sessions')
+    user = db.relationship('User', backref=backref('wfs_sessions', cascade="all,delete,delete-orphan"))
 
     @classmethod
     def by_active_user_layer(cls, layer, user):

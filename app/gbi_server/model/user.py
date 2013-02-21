@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
     authproxy_token = db.Column(db.String(32), unique=True,
         default=lambda: uuid.uuid4().hex)
     email_verification = db.relationship('EmailVerification', backref='user',
-        uselist=False, cascade='all, delete-orphan')
+        uselist=False, cascade='all,delete,delete-orphan')
     type = db.Column(db.Integer, default=0)
 
     def __init__(self, email, password=None):
