@@ -26,7 +26,7 @@
             <dt>{{ _('user settings') }}</dt>
             <dd>
                 <a class="btn btn-small" {% if not user.active and user.verified %} href="{{ url_for('admin.activate_user', id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('activate') }}</a>
-                <a class="btn btn-small" {% if not user.active and not user.verified %} href="{{ url_for('admin.verify_user', id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('verify') }}</a>
+                <a class="btn btn-small" {% if not user.verified and not user.verified %} href="{{ url_for('admin.verify_user', id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('verify') }}</a>
                 <a class="btn btn-small" href="{{ url_for('admin.edit_user', id=user.id) }}">{{ _('edit') }}</a>
                 <a class="btn btn-small" href="{{ url_for('admin.reset_user_password', id=user.id) }}">{{ _('reset password') }}</a>
                 <a class="btn btn-small" href="{{ url_for('admin.user_log', id=user.id) }}">{{ _('show log') }}</a>
