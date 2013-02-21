@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-21 09:22+0100\n"
+"POT-Creation-Date: 2013-02-21 09:43+0100\n"
 "PO-Revision-Date: 2013-02-08 08:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -847,7 +847,7 @@ msgstr ""
 msgid " wfs external editor info_text_3 - save"
 msgstr ""
 "Um Änderungen zu übernehmen die im externen Editor gemacht wurden, "
-"beenden Sie bitte anschlieißend hier den Bearbeitungsmodus"
+"beenden Sie bitte anschließend hier den Bearbeitungsmodus"
 
 #: gbi_server/templates/maps/wfs_session.html:28
 msgid "save and end wfs session"
@@ -1090,13 +1090,13 @@ msgstr "Beraterbox"
 
 #: gbi_server/views/maps.py:71
 #, python-format
-msgid "Layer %(layer)s already existlayer"
-msgstr "Layer '%(layer)s existiert bereits"
+msgid "Layer %(layer)s already exists"
+msgstr "Layer '%(layer)s' existiert bereits"
 
 #: gbi_server/views/maps.py:74
 #, python-format
-msgid "Layer %(layer)s createdlayer"
-msgstr "Layer '%(layer)s wurde erstellt"
+msgid "Layer %(layer)s created"
+msgstr "Layer '%(layer)s' wurde erstellt"
 
 #: gbi_server/views/maps.py:93 gbi_server/views/maps.py:142
 msgid "external edit in progress"
@@ -1112,12 +1112,12 @@ msgstr "Dieser Layer darf nicht gelöscht werden"
 
 #: gbi_server/views/maps.py:148
 #, python-format
-msgid "Layer %(layer)s removedlayer"
+msgid "Layer %(layer)s removed"
 msgstr "Layer %(layer)s gelöscht"
 
 #: gbi_server/views/maps.py:150
 #, python-format
-msgid "Could not remove layer %(layer)slayer"
+msgid "Could not remove layer %(layer)s"
 msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
 
 #: gbi_server/views/maps.py:183

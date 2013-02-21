@@ -68,10 +68,10 @@ def wfs_edit():
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
         schema = florlp.base_schema()
         if couch.layer_schema(layer):
-            flash(_('Layer %(layer)s already exist' % {'layer': layer}), 'error')
+            flash(_('Layer %(layer)s already exists', layer=layer), 'error')
         else:
             couch.store_layer_schema(layer, schema)
-            flash(_('Layer %(layer)s created' % {'layer': layer}))
+            flash(_('Layer %(layer)s created', layer=layer))
 
     form.layer.choices = [(layer, layer) for layer in couch.get_layer_names() if layer != current_app.config.get('USER_READONLY_LAYER')]
 
@@ -145,9 +145,9 @@ def wfs_remove_layer(layer=None):
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
     try:
         couch.clear_layer(layer)
-        flash(_('Layer %(layer)s removed' % {'layer': layer}))
+        flash(_('Layer %(layer)s removed', layer=layer))
     except CouchDBError:
-        flash(_('Could not remove layer %(layer)s' % {'layer': layer}), 'error')
+        flash(_('Could not remove layer %(layer)s', layer=layer), 'error')
 
     return redirect(url_for('.wfs_edit'))
 

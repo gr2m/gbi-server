@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-21 09:22+0100\n"
+"POT-Creation-Date: 2013-02-21 09:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -997,12 +997,12 @@ msgstr ""
 
 #: gbi_server/views/maps.py:71
 #, python-format
-msgid "Layer %(layer)s already existlayer"
+msgid "Layer %(layer)s already exists"
 msgstr ""
 
 #: gbi_server/views/maps.py:74
 #, python-format
-msgid "Layer %(layer)s createdlayer"
+msgid "Layer %(layer)s created"
 msgstr ""
 
 #: gbi_server/views/maps.py:93 gbi_server/views/maps.py:142
@@ -1019,12 +1019,12 @@ msgstr ""
 
 #: gbi_server/views/maps.py:148
 #, python-format
-msgid "Layer %(layer)s removedlayer"
+msgid "Layer %(layer)s removed"
 msgstr ""
 
 #: gbi_server/views/maps.py:150
 #, python-format
-msgid "Could not remove layer %(layer)slayer"
+msgid "Could not remove layer %(layer)s"
 msgstr ""
 
 #: gbi_server/views/maps.py:183
