@@ -94,7 +94,12 @@ def wfs_edit_layer(layer=None):
         return redirect(url_for('.wfs_session', layer=layer))
 
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-    wfs_layers, wfs_layer_token = create_wfs(user, [current_app.config.get('EXTERNAL_WFS_LAYER'), layer])
+
+    try:
+        wfs_layers, wfs_layer_token = create_wfs(user, [current_app.config.get('EXTERNAL_WFS_LAYER'), layer])
+    except MissingSchemaError:
+        flash(_('layer unknown or without schema'))
+        abort(404)
 
     features = [feature for feature in couch.iter_layer_features(current_app.config.get('USER_READONLY_LAYER')) if isinstance(feature['geometry'], dict)]
 
@@ -153,7 +158,11 @@ def wfs_session(layer=None):
     wfs_session = WFSSession.by_active_user_layer(layer, user)
 
     if not wfs_session:
-        wfs_layers, wfs_layer_token = create_wfs(user, [layer])
+        try:
+            wfs_layers, wfs_layer_token = create_wfs(user, [layer])
+        except MissingSchemaError:
+            flash(_('layer unknown or without schema'))
+            abort(404)
         wfs_session = WFSSession(user=user, layer=layer, url=url_for('.tinyows_wfs', token=wfs_layer_token, _external=True))
         db.session.add(wfs_session)
         db.session.commit()
@@ -214,6 +223,9 @@ def save_changes(layer=None):
     flash(_('wfs changes saved'))
     return redirect(url_for('.wfs_edit'))
 
+class MissingSchemaError(Exception):
+    pass
+
 def create_wfs(user=None, layers=None):
     connection = psycopg2.connect(
         database=current_app.config.get('TEMP_PG_DB'),
@@ -254,6 +266,8 @@ def create_wfs(user=None, layers=None):
             wfs_layer['display_in_layerswitcher'] = False
         else:
             schema = couch.layer_schema(layer)
+            if not schema or 'properties' not in schema:
+                raise MissingSchemaError('no schema found for layer %s' % layer)
             extend_schema_for_couchdb(schema)
             # tinyows layername must not contain underscores
             tablename = 'tmp%s%s' % (user.id, layer)

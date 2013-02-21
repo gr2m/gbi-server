@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-11 10:58+0100\n"
+"POT-Creation-Date: 2013-02-21 09:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,222 +17,222 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: gbi_server/application.py:147 gbi_server/templates/errors/405.html:2
+#: gbi_server/application.py:162 gbi_server/templates/errors/405.html:2
 #: gbi_server/templates/errors/405.html:4
 msgid "method not allowed"
 msgstr ""
 
-#: gbi_server/application.py:153 gbi_server/templates/errors/404.html:2
+#: gbi_server/application.py:168 gbi_server/templates/errors/404.html:2
 #: gbi_server/templates/errors/404.html:4
 msgid "page not found"
 msgstr ""
 
-#: gbi_server/application.py:159 gbi_server/templates/errors/403.html:3
+#: gbi_server/application.py:174 gbi_server/templates/errors/403.html:3
 #: gbi_server/templates/errors/403.html:6
 msgid "not allowed"
 msgstr ""
 
-#: gbi_server/application.py:165
+#: gbi_server/application.py:180
 msgid "an error has occurred"
 msgstr ""
 
-#: gbi_server/application.py:171
+#: gbi_server/application.py:186
 msgid "Login required"
 msgstr ""
 
-#: gbi_server/application.py:172
+#: gbi_server/application.py:187
 msgid "Please login to see this page"
 msgstr ""
 
-#: gbi_server/forms/admin.py:10 gbi_server/forms/user.py:22
+#: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:37
 #: gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/macros/user.html:6
 msgid "type"
 msgstr ""
 
-#: gbi_server/forms/admin.py:11 gbi_server/forms/user.py:23
-#: gbi_server/model/user.py:55
+#: gbi_server/forms/admin.py:26 gbi_server/forms/user.py:38
+#: gbi_server/model/user.py:70
 msgid "customer"
 msgstr ""
 
-#: gbi_server/forms/admin.py:12 gbi_server/forms/user.py:24
-#: gbi_server/model/user.py:55
+#: gbi_server/forms/admin.py:27 gbi_server/forms/user.py:39
+#: gbi_server/model/user.py:70
 msgid "service_provider"
 msgstr ""
 
-#: gbi_server/forms/admin.py:13 gbi_server/model/user.py:55
+#: gbi_server/forms/admin.py:28 gbi_server/model/user.py:70
 msgid "consultant"
 msgstr ""
 
-#: gbi_server/forms/admin.py:14 gbi_server/model/user.py:55
+#: gbi_server/forms/admin.py:29 gbi_server/model/user.py:70
 #: gbi_server/templates/admin/index.html:5
 msgid "admin"
 msgstr ""
 
-#: gbi_server/forms/admin.py:16 gbi_server/templates/admin/user_detail.html:19
+#: gbi_server/forms/admin.py:31 gbi_server/templates/admin/user_detail.html:19
 #: gbi_server/templates/admin/user_list.html:30
 msgid "verified"
 msgstr ""
 
-#: gbi_server/forms/admin.py:17 gbi_server/templates/admin/user_detail.html:17
+#: gbi_server/forms/admin.py:32 gbi_server/templates/admin/user_detail.html:17
 #: gbi_server/templates/admin/user_list.html:28
 msgid "active"
 msgstr ""
 
-#: gbi_server/forms/admin.py:18 gbi_server/forms/user.py:33
+#: gbi_server/forms/admin.py:33 gbi_server/forms/user.py:48
 msgid "terms of use"
 msgstr ""
 
-#: gbi_server/forms/admin.py:21 gbi_server/templates/admin/wmts_list.html:14
+#: gbi_server/forms/admin.py:36 gbi_server/templates/admin/wmts_list.html:14
 msgid "wmts_url"
 msgstr ""
 
-#: gbi_server/forms/admin.py:22
+#: gbi_server/forms/admin.py:37
 msgid "wmts_username"
 msgstr ""
 
-#: gbi_server/forms/admin.py:23
+#: gbi_server/forms/admin.py:38
 msgid "wmts_password"
 msgstr ""
 
-#: gbi_server/forms/admin.py:24
+#: gbi_server/forms/admin.py:39
 msgid "wmts_name"
 msgstr ""
 
-#: gbi_server/forms/admin.py:25 gbi_server/templates/admin/wmts_list.html:13
+#: gbi_server/forms/admin.py:40 gbi_server/templates/admin/wmts_list.html:13
 msgid "wmts_title"
 msgstr ""
 
-#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/wmts_list.html:15
+#: gbi_server/forms/admin.py:41 gbi_server/templates/admin/wmts_list.html:15
 msgid "wmts_layer"
 msgstr ""
 
-#: gbi_server/forms/admin.py:27 gbi_server/templates/admin/wmts_list.html:16
+#: gbi_server/forms/admin.py:42 gbi_server/templates/admin/wmts_list.html:16
 msgid "wmts_format"
 msgstr ""
 
-#: gbi_server/forms/admin.py:28
+#: gbi_server/forms/admin.py:43
 msgid "wmts_srs"
 msgstr ""
 
-#: gbi_server/forms/admin.py:29
+#: gbi_server/forms/admin.py:44
 msgid "wmts_matrix_set"
 msgstr ""
 
-#: gbi_server/forms/admin.py:31
+#: gbi_server/forms/admin.py:46
 msgid "wmts_view_coverage"
 msgstr ""
 
-#: gbi_server/forms/admin.py:32 gbi_server/templates/admin/wmts_list.html:17
+#: gbi_server/forms/admin.py:47 gbi_server/templates/admin/wmts_list.html:17
 msgid "wmts_view_level_start"
 msgstr ""
 
-#: gbi_server/forms/admin.py:33 gbi_server/templates/admin/wmts_list.html:18
+#: gbi_server/forms/admin.py:48 gbi_server/templates/admin/wmts_list.html:18
 msgid "wmts_view_level_end"
 msgstr ""
 
-#: gbi_server/forms/admin.py:35
+#: gbi_server/forms/admin.py:50
 msgid "wmts_background_layer"
 msgstr ""
 
-#: gbi_server/forms/admin.py:36
+#: gbi_server/forms/admin.py:51
 msgid "wmts_transparent"
 msgstr ""
 
-#: gbi_server/forms/admin.py:37
+#: gbi_server/forms/admin.py:52
 msgid "wmts_visibility"
 msgstr ""
 
-#: gbi_server/forms/admin.py:38
+#: gbi_server/forms/admin.py:53
 msgid "wmts_public"
 msgstr ""
 
-#: gbi_server/forms/admin.py:42
+#: gbi_server/forms/admin.py:57
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 
-#: gbi_server/forms/user.py:9 gbi_server/forms/user.py:27
-#: gbi_server/forms/user.py:39 gbi_server/templates/admin/user_list.html:13
+#: gbi_server/forms/user.py:24 gbi_server/forms/user.py:42
+#: gbi_server/forms/user.py:54 gbi_server/templates/admin/user_list.html:13
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:3
 msgid "email"
 msgstr ""
 
-#: gbi_server/forms/user.py:10 gbi_server/forms/user.py:28
-#: gbi_server/forms/user.py:36 gbi_server/forms/user.py:42
-#: gbi_server/forms/user.py:52
+#: gbi_server/forms/user.py:25 gbi_server/forms/user.py:43
+#: gbi_server/forms/user.py:51 gbi_server/forms/user.py:57
+#: gbi_server/forms/user.py:67
 msgid "password"
 msgstr ""
 
-#: gbi_server/forms/user.py:13
+#: gbi_server/forms/user.py:28
 msgid "florlp_username"
 msgstr ""
 
-#: gbi_server/forms/user.py:14
+#: gbi_server/forms/user.py:29
 msgid "realname"
 msgstr ""
 
-#: gbi_server/forms/user.py:15
+#: gbi_server/forms/user.py:30
 msgid "street"
 msgstr ""
 
-#: gbi_server/forms/user.py:16
+#: gbi_server/forms/user.py:31
 msgid "housenumber"
 msgstr ""
 
-#: gbi_server/forms/user.py:17
+#: gbi_server/forms/user.py:32
 msgid "zipcode"
 msgstr ""
 
-#: gbi_server/forms/user.py:18
+#: gbi_server/forms/user.py:33
 msgid "city"
 msgstr ""
 
-#: gbi_server/forms/user.py:21
+#: gbi_server/forms/user.py:36
 msgid "florlp_password"
 msgstr ""
 
-#: gbi_server/forms/user.py:30 gbi_server/forms/user.py:44
+#: gbi_server/forms/user.py:45 gbi_server/forms/user.py:59
 msgid "Passwords must match"
 msgstr ""
 
-#: gbi_server/forms/user.py:32 gbi_server/forms/user.py:46
+#: gbi_server/forms/user.py:47 gbi_server/forms/user.py:61
 msgid "password repeat"
 msgstr ""
 
-#: gbi_server/forms/user.py:49
+#: gbi_server/forms/user.py:64
 msgid "old password"
 msgstr ""
 
-#: gbi_server/forms/user.py:55
+#: gbi_server/forms/user.py:70
 msgid "file"
 msgstr ""
 
-#: gbi_server/forms/validator.py:9
+#: gbi_server/forms/validator.py:22
 msgid "email already exists."
 msgstr ""
 
-#: gbi_server/forms/validator.py:13
+#: gbi_server/forms/validator.py:26
 msgid "email does not exist."
 msgstr ""
 
-#: gbi_server/forms/validator.py:17
+#: gbi_server/forms/validator.py:30
 msgid "Password must at least 6 characters"
 msgstr ""
 
-#: gbi_server/forms/wfs.py:10
+#: gbi_server/forms/wfs.py:25
 msgid "wfs_layer"
 msgstr ""
 
-#: gbi_server/forms/wfs.py:18
+#: gbi_server/forms/wfs.py:33
 msgid "wfs_new_layer_name"
 msgstr ""
 
-#: gbi_server/forms/wfs.py:18
+#: gbi_server/forms/wfs.py:33
 msgid "Only alphanummeric lowercase characters are allowed!"
 msgstr ""
 
-#: gbi_server/lib/external_wms.py:63
+#: gbi_server/lib/external_wms.py:78
 msgid "external_wms_title"
 msgstr ""
 
@@ -280,7 +280,7 @@ msgid "info text wmts map"
 msgstr ""
 
 #: gbi_server/templates/index.html:16 gbi_server/templates/maps/wfs.html:5
-#: gbi_server/templates/maps/wfs.html:36
+#: gbi_server/templates/maps/wfs.html:37
 msgid "WFS Edit"
 msgstr ""
 
@@ -666,79 +666,79 @@ msgstr ""
 msgid "save feature successfull"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:42
+#: gbi_server/templates/maps/wfs.html:43
 msgid "search features"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:44
+#: gbi_server/templates/maps/wfs.html:45
 msgid "search help text"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:48
+#: gbi_server/templates/maps/wfs.html:49
 msgid "search_label"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:48
+#: gbi_server/templates/maps/wfs.html:49
 msgid "tooltip - search"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:54
+#: gbi_server/templates/maps/wfs.html:55
 msgid "no search result"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:56
+#: gbi_server/templates/maps/wfs.html:57
 msgid "add search"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:57
+#: gbi_server/templates/maps/wfs.html:58
 msgid "remove search"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:59
+#: gbi_server/templates/maps/wfs.html:60
 msgid "feature settings"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:60
+#: gbi_server/templates/maps/wfs.html:61
 msgid "feature help text"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:61
+#: gbi_server/templates/maps/wfs.html:62
 msgid "feature operations"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:62
+#: gbi_server/templates/maps/wfs.html:63
 msgid "tooltip - feature operations"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:64
+#: gbi_server/templates/maps/wfs.html:65
 msgid "copy feature"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:65
+#: gbi_server/templates/maps/wfs.html:66
 msgid "edit feature"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:66
+#: gbi_server/templates/maps/wfs.html:67
 msgid "delete feature"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:68
+#: gbi_server/templates/maps/wfs.html:69
 msgid "save changes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:69
+#: gbi_server/templates/maps/wfs.html:70
 msgid "tooltip - button save changes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:75
+#: gbi_server/templates/maps/wfs.html:76
 msgid "attributes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:76
+#: gbi_server/templates/maps/wfs.html:77
 msgid "tooltip - attrbibutes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:79
+#: gbi_server/templates/maps/wfs.html:80
 msgid "save attributes"
 msgstr ""
 
@@ -930,317 +930,321 @@ msgstr ""
 msgid "email for verification sent"
 msgstr ""
 
-#: gbi_server/views/admin.py:53
+#: gbi_server/views/admin.py:67
 msgid "User verified"
 msgstr ""
 
-#: gbi_server/views/admin.py:63
+#: gbi_server/views/admin.py:77
 msgid "Account activated mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:68
+#: gbi_server/views/admin.py:82
 msgid "User activated"
 msgstr ""
 
-#: gbi_server/views/admin.py:87 gbi_server/views/user.py:117
-#: gbi_server/views/user.py:150
+#: gbi_server/views/admin.py:101 gbi_server/views/user.py:117
+#: gbi_server/views/user.py:172
 msgid "Email verification mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:100
+#: gbi_server/views/admin.py:114
 msgid "User created"
 msgstr ""
 
-#: gbi_server/views/admin.py:116
+#: gbi_server/views/admin.py:130
 msgid "User edited"
 msgstr ""
 
-#: gbi_server/views/admin.py:127
+#: gbi_server/views/admin.py:141
 msgid "Password reset"
 msgstr ""
 
-#: gbi_server/views/admin.py:138
+#: gbi_server/views/admin.py:152
 msgid "User removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:195
+#: gbi_server/views/admin.py:209
 msgid "Saved WMTS"
 msgstr ""
 
-#: gbi_server/views/admin.py:199
+#: gbi_server/views/admin.py:213
 msgid "WMTS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:208
+#: gbi_server/views/admin.py:222
 msgid "WMTS removed"
 msgstr ""
 
-#: gbi_server/views/boxes.py:39
+#: gbi_server/views/boxes.py:54
 msgid "upload success"
 msgstr ""
 
-#: gbi_server/views/boxes.py:41
+#: gbi_server/views/boxes.py:56
 msgid "file type not allowed"
 msgstr ""
 
-#: gbi_server/views/boxes.py:94
+#: gbi_server/views/boxes.py:109
 msgid "file deleted"
 msgstr ""
 
-#: gbi_server/views/context.py:95
+#: gbi_server/views/context.py:110
 msgid "area box"
 msgstr ""
 
-#: gbi_server/views/context.py:105
+#: gbi_server/views/context.py:120
 msgid "consultant box"
 msgstr ""
 
-#: gbi_server/views/maps.py:57
+#: gbi_server/views/maps.py:71
 #, python-format
 msgid "Layer %(layer)s already existlayer"
 msgstr ""
 
-#: gbi_server/views/maps.py:60
+#: gbi_server/views/maps.py:74
 #, python-format
 msgid "Layer %(layer)s createdlayer"
 msgstr ""
 
-#: gbi_server/views/maps.py:79 gbi_server/views/maps.py:122
+#: gbi_server/views/maps.py:93 gbi_server/views/maps.py:142
 msgid "external edit in progress"
 msgstr ""
 
-#: gbi_server/views/maps.py:117
+#: gbi_server/views/maps.py:101 gbi_server/views/maps.py:164
+msgid "layer unknown or without schema"
+msgstr ""
+
+#: gbi_server/views/maps.py:137
 msgid "not allowed to remove this layer"
 msgstr ""
 
-#: gbi_server/views/maps.py:128
+#: gbi_server/views/maps.py:148
 #, python-format
 msgid "Layer %(layer)s removedlayer"
 msgstr ""
 
-#: gbi_server/views/maps.py:130
+#: gbi_server/views/maps.py:150
 #, python-format
 msgid "Could not remove layer %(layer)slayer"
 msgstr ""
 
-#: gbi_server/views/maps.py:159
+#: gbi_server/views/maps.py:183
 msgid "wfs changes discarded"
 msgstr ""
 
-#: gbi_server/views/maps.py:199
+#: gbi_server/views/maps.py:223
 msgid "wfs changes saved"
 msgstr ""
 
-#: gbi_server/views/user.py:45
+#: gbi_server/views/user.py:63
 msgid "user or passwort is not correct"
 msgstr ""
 
-#: gbi_server/views/user.py:50
+#: gbi_server/views/user.py:68
 msgid "account not activated"
 msgstr ""
 
-#: gbi_server/views/user.py:56
+#: gbi_server/views/user.py:74
 msgid "Logged in successfully."
 msgstr ""
 
-#: gbi_server/views/user.py:81
+#: gbi_server/views/user.py:99
 msgid "Invalid florlp username/password"
 msgstr ""
 
-#: gbi_server/views/user.py:135
+#: gbi_server/views/user.py:157
 msgid "Account removed"
 msgstr ""
 
-#: gbi_server/views/user.py:155
+#: gbi_server/views/user.py:177
 msgid "email verification was sent successfully"
 msgstr ""
 
-#: gbi_server/views/user.py:177
+#: gbi_server/views/user.py:199
 msgid "Activate user subject"
 msgstr ""
 
-#: gbi_server/views/user.py:182
+#: gbi_server/views/user.py:204
 msgid "Email verified"
 msgstr ""
 
-#: gbi_server/views/user.py:195
+#: gbi_server/views/user.py:217
 msgid "Password recover mail subject"
 msgstr ""
 
-#: gbi_server/views/user.py:237
+#: gbi_server/views/user.py:259
 msgid "Address changed"
 msgstr ""
 
-#: gbi_server/views/user.py:250
+#: gbi_server/views/user.py:272
 msgid "Password changed"
 msgstr ""
 
-#: gbi_server/views/user.py:253
+#: gbi_server/views/user.py:275
 msgid "Old password is not correct"
 msgstr ""
 
-#: gbi_server/views/user.py:266
+#: gbi_server/views/user.py:288
 msgid "Invalid florlp password"
 msgstr ""
 
-#: gbi_server/views/user.py:282
+#: gbi_server/views/user.py:308
 msgid "Refreshed florlp data"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:55
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:55
 #, python-format
 msgid "Invalid field name '%s'."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:62
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:62
 #, python-format
 msgid "Field must be equal to %(other_name)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:94
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:94
 #, python-format
 msgid "Field must be at least %(min)d character long."
 msgid_plural "Field must be at least %(min)d characters long."
 msgstr[0] ""
 msgstr[1] ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:97
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:97
 #, python-format
 msgid "Field cannot be longer than %(max)d character."
 msgid_plural "Field cannot be longer than %(max)d characters."
 msgstr[0] ""
 msgstr[1] ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:100
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be between %(min)d and %(max)d characters long."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:135
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:135
 #, python-format
 msgid "Number must be greater than %(min)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:137
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:137
 #, python-format
 msgid "Number must be less than %(max)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:139
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:139
 #, python-format
 msgid "Number must be between %(min)s and %(max)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:188
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:221
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:188
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:221
 msgid "This field is required."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:249
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:249
 msgid "Invalid input."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:268
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:268
 msgid "Invalid email address."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:297
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:297
 msgid "Invalid IP address."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:345
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:345
 msgid "Invalid Mac address."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:370
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:370
 msgid "Invalid URL."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:388
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:388
 msgid "Invalid UUID."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:415
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:415
 #, python-format
 msgid "Invalid value, must be one of: %(values)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:442
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/validators.py:442
 #, python-format
 msgid "Invalid value, can't be any of: %(values)s."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:419
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:419
 msgid "Not a valid choice"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
 msgid "Not a valid list"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
 msgid "Invalid CSRF Token"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
 msgid "CSRF token missing"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
 msgid "CSRF failed"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
 msgid "CSRF token expired"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
 msgid "Please input a date/time value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
 msgid "Invalid date/time input"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
 msgid "Already exists."
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:412
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:412
 msgid "Invalid Choice: could not coerce"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:445
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:445
 msgid "Invalid choice(s): one or more data inputs could not be coerced"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:452
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:452
 #, python-format
 msgid "'%(value)s' is not a valid choice for this field"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:507
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:507
 msgid "Not a valid integer value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:554
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:554
 msgid "Not a valid decimal value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:581
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:581
 msgid "Not a valid float value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:632
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:632
 msgid "Not a valid datetime value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
+#: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr ""
 
