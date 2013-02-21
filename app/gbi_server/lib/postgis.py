@@ -150,17 +150,19 @@ class TempPGDB(object):
         cur = self.connection.cursor()
 
         feature_ids = []
+        schema_properties = set(self.schema.keys())
         for feature in features:
             feature_id = feature['properties'].get('_id')
-            extra_arg_names = feature['properties'].keys()
+
+            extra_arg_names = [n for n in feature['properties'].iterkeys() if n in schema_properties]
             extra_args = ', %s' * len(extra_arg_names)
-            extra_arg_names = ', ' + ', '.join('"' + name.lower() + '"' for name in extra_arg_names)
+            extra_arg_names_list = ', ' + ', '.join('"' + name.lower() + '"' for name in extra_arg_names)
             insert_statement = """
             INSERT INTO %(tablename)s (geometry, __modified %(extra_arg_names)s)
                 VALUES (ST_GeomFromWKB(%%s, 3857), false %(extra_args)s);
             """ % {
                 'tablename': self.tablename,
-                'extra_arg_names': extra_arg_names,
+                'extra_arg_names': extra_arg_names_list,
                 'extra_args': extra_args,
             }
             try:
@@ -168,7 +170,9 @@ class TempPGDB(object):
             except ValueError:
                 # feature is not a geometry
                 continue
-            cur.execute(insert_statement, [psycopg2.Binary(geometry.wkb)] + feature['properties'].values())
+            cur.execute(insert_statement,
+                [psycopg2.Binary(geometry.wkb)]
+                + [feature['properties'][n] for n in extra_arg_names])
 
             if feature_id:
                 feature_ids.append(feature_id)
