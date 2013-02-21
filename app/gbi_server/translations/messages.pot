@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-21 09:43+0100\n"
+"POT-Creation-Date: 2013-02-21 10:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,8 +45,8 @@ msgid "Please login to see this page"
 msgstr ""
 
 #: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:37
-#: gbi_server/templates/admin/user_list.html:14
-#: gbi_server/templates/macros/user.html:6
+#: gbi_server/templates/admin/user_list.html:15
+#: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr ""
 
@@ -70,12 +70,12 @@ msgid "admin"
 msgstr ""
 
 #: gbi_server/forms/admin.py:31 gbi_server/templates/admin/user_detail.html:19
-#: gbi_server/templates/admin/user_list.html:30
+#: gbi_server/templates/admin/user_list.html:32
 msgid "verified"
 msgstr ""
 
 #: gbi_server/forms/admin.py:32 gbi_server/templates/admin/user_detail.html:17
-#: gbi_server/templates/admin/user_list.html:28
+#: gbi_server/templates/admin/user_list.html:30
 msgid "active"
 msgstr ""
 
@@ -152,9 +152,9 @@ msgid "level needs to be bigger or equal to start level"
 msgstr ""
 
 #: gbi_server/forms/user.py:24 gbi_server/forms/user.py:42
-#: gbi_server/forms/user.py:54 gbi_server/templates/admin/user_list.html:13
+#: gbi_server/forms/user.py:54 gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/boxes/overview.html:19
-#: gbi_server/templates/macros/user.html:3
+#: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr ""
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid "wfs_new_layer_name"
 msgstr ""
 
-#: gbi_server/forms/wfs.py:33
+#: gbi_server/forms/wfs.py:34
 msgid "Only alphanummeric lowercase characters are allowed!"
 msgstr ""
 
@@ -418,23 +418,23 @@ msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:5
 #: gbi_server/templates/admin/user_detail.html:7
-#: gbi_server/templates/admin/user_list.html:35
+#: gbi_server/templates/admin/user_list.html:37
 #: gbi_server/templates/admin/user_log.html:5
 msgid "user details"
 msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:14
-#: gbi_server/templates/admin/user_list.html:16
+#: gbi_server/templates/admin/user_list.html:17
 msgid "status"
 msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:19
-#: gbi_server/templates/admin/user_list.html:30
+#: gbi_server/templates/admin/user_list.html:32
 msgid "not active"
 msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:21
-#: gbi_server/templates/admin/user_list.html:32
+#: gbi_server/templates/admin/user_list.html:34
 msgid "not verified"
 msgstr ""
 
@@ -459,8 +459,13 @@ msgstr ""
 msgid "show log"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list.html:15
-#: gbi_server/templates/macros/user.html:9
+#: gbi_server/templates/admin/user_list.html:13
+#: gbi_server/templates/macros/user.html:3
+msgid "id"
+msgstr ""
+
+#: gbi_server/templates/admin/user_list.html:16
+#: gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr ""
 
@@ -634,15 +639,15 @@ msgstr ""
 msgid "white background map"
 msgstr ""
 
-#: gbi_server/templates/macros/user.html:12
+#: gbi_server/templates/macros/user.html:15
 msgid "last login"
 msgstr ""
 
-#: gbi_server/templates/macros/user.html:15
+#: gbi_server/templates/macros/user.html:18
 msgid "florlp name"
 msgstr ""
 
-#: gbi_server/templates/macros/user.html:20
+#: gbi_server/templates/macros/user.html:23
 msgid "address"
 msgstr ""
 

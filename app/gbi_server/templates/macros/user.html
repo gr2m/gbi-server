@@ -1,5 +1,8 @@
 {% macro user_detail(user, address) %}
     <dl class="dl-horizontal">
+        <dt>{{ _('id') }}</dt>
+        <dd>{{ user.id }}</dd>
+
         <dt>{{ _('email') }}</dt>
         <dd>{{ user.email }}</dd>
 
