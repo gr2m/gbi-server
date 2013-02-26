@@ -85,7 +85,7 @@ def get_context_document():
         response['wmts_sources'].append({
             "name": wmts.name,
             "title": wmts.title,
-            "url": url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/',
+            "url": url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/'),
             "layer": wmts.layer,
             "tile_matrix": wmts.matrix_set,
             "format": wmts.format,
