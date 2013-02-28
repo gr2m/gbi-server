@@ -210,8 +210,7 @@ function init_draw_controls(map, layers, write_layer) {
 
     var edit = new OpenLayers.Control.ModifyFeature(write_layer, {
         standalone: true,
-        mode: OpenLayers.Control.ModifyFeature.RESHAPE |
-               OpenLayers.Control.ModifyFeature.DRAG
+        mode: OpenLayers.Control.ModifyFeature.RESHAPE
     });
     edit.setMap(map)
 
