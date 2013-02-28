@@ -21,6 +21,7 @@ from flask import (
 from flask.ext.babel import gettext as _
 from flask.ext.login import login_user, logout_user, login_required, current_user
 
+from gbi_server import signals
 from gbi_server.forms.user import LoginForm, NewUserForm, RemoveUserForm, RecoverSetForm, \
     EditAddressForm, EditPasswordForm, RefreshFlorlpForm, RecoverRequestForm
 from gbi_server.extensions import db
@@ -34,7 +35,6 @@ from gbi_server.lib.florlp import (
 )
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
 from gbi_server.lib.transform import transform_geojson
-
 from gbi_server.config import SystemConfig
 
 
@@ -301,10 +301,13 @@ def refresh_florlp():
             layers.append(current_app.config.get('USER_WORKON_LAYER'))
 
         for layer in layers:
-            #XXX kai: check if layer exists before clear it
             couch.clear_layer(layer)
             couch.store_layer_schema(layer, schema)
             couch.store_features(layer, feature_collection['features'])
+
+            signals.features_updated.send(user, layer=layer)
+
+
         flash(_('Refreshed florlp data'), 'success')
         return redirect(url_for(".index"))
     return render_template("user/refresh_florlp.html", form=form)
