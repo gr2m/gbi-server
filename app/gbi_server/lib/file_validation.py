@@ -51,6 +51,7 @@ def check_gif(file):
 def check_json(file):
     try:
         json.loads(file.read())
+        file.seek(0)
         return {'mimetype': 'application/json'}
     except ValueError:
         return False
@@ -58,8 +59,9 @@ def check_json(file):
 def check_xml(file):
     try:
         xml.sax.parse(file, xml.sax.ContentHandler())
+        file.seek(0)
         return {'mimetype': 'text/xml' }
-    except:
+    except Exception:
         return False
 
 def check_csv(file):
