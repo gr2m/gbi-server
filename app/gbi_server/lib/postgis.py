@@ -170,6 +170,10 @@ class TempPGDB(object):
             except ValueError:
                 # feature is not a geometry
                 continue
+            if geometry.type not in ('Polygon', ):
+                # skip non polygons
+                continue
+
             cur.execute(insert_statement,
                 [psycopg2.Binary(geometry.wkb)]
                 + [feature['properties'][n] for n in extra_arg_names])
