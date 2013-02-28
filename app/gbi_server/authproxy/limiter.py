@@ -14,11 +14,15 @@
 # limitations under the License.
 
 import os
+import time
 from glob import glob
 
 import errno
 
 from mapproxy.platform.lock import FileLock
+
+import logging
+log = logging.getLogger(__name__)
 
 class InvalidUserToken(ValueError):
     pass
@@ -27,6 +31,7 @@ class LimiterCache(object):
     def __init__(self, cache_dir, file_pattern='*'):
         self.cache_dir = cache_dir
         self.file_pattern = file_pattern
+        self.max_cache_time = 60*60 # 60min
 
     def cache_path(self, user_token):
         return os.path.join(self.cache_dir, user_token[:2], user_token)
@@ -46,6 +51,15 @@ class LimiterCache(object):
 
     def load(self, user_token, name):
         cache_file = self.cache_file(user_token, name)
+        try:
+            mtime = os.path.getmtime(cache_file)
+            if (time.time() - mtime) > self.max_cache_time:
+                log.debug('removing cached tilelimit for %s %s', user_token, name)
+                os.unlink(cache_file)
+        except EnvironmentError, ex:
+            if ex.errno != errno.ENOENT:
+                raise
+
         try:
             with open(cache_file, 'rb') as f:
                 return self.deserialize(f.read())
