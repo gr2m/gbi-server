@@ -58,15 +58,18 @@ def geocouch_feature_to_geojson(feature):
 
 
 class CouchDB(object):
-    def __init__(self, url, dbname):
+    def __init__(self, url, dbname, auth=None):
         self.url = url
         self.dbname = dbname
         self.couchdb_url = url + '/' + dbname
         self.session = requests.Session()
-        self.session.auth = (
-            current_app.config['COUCH_DB_ADMIN_USER'],
-            current_app.config['COUCH_DB_ADMIN_PASSWORD'],
-        )
+        if auth:
+            self.session.auth = auth
+        else:
+            self.session.auth = (
+                current_app.config['COUCH_DB_ADMIN_USER'],
+                current_app.config['COUCH_DB_ADMIN_PASSWORD'],
+            )
 
     def drop(self):
         self.session.delete(self.couchdb_url)
