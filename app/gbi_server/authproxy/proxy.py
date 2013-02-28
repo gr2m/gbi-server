@@ -17,6 +17,7 @@ import re
 import requests
 from collections import namedtuple
 
+from flask import current_app
 from werkzeug import exceptions
 from werkzeug.routing import Map, Rule
 from werkzeug.wrappers import Request, Response
@@ -143,6 +144,10 @@ class CouchDBProxy(object):
         try:
             resp = requests.request(request.method, proxy_couch.url,
                 data=data, headers=headers,
+                auth=(
+                    current_app.config['COUCH_DB_ADMIN_USER'],
+                    current_app.config['COUCH_DB_ADMIN_PASSWORD']
+                ),
                 params=request.args, stream=True)
 
             chunked_response = resp.headers.get('Transfer-Encoding') == 'chunked'
