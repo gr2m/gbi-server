@@ -239,7 +239,8 @@ def recover_new_password(uuid):
         user.update_password(form.data['password'])
         db.session.delete(verify)
         db.session.commit()
-        return redirect(url_for(".index"))
+        login_user(user)
+        return redirect(url_for(".home"))
 
     return render_template("user/password_set.html", user=user, form=form, verify=verify)
 
