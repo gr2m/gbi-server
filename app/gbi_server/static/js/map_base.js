@@ -19,8 +19,9 @@ var rw_symbolizer = {
 };
 
 var select_symbolizer = {
-    strokeColor: "blue",
-    strokeWidth: 2
+    strokeColor: "black",
+    strokeWidth: 2,
+    strokeOpacity: 1
 };
 
 var ro_style = new OpenLayers.Style();
