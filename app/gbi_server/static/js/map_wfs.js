@@ -1,4 +1,5 @@
 var selected_feature = false;
+var selected_features = [];
 var draw_controls = false;
 
 function zoom_to_data_extent() {
@@ -97,12 +98,15 @@ function create_attribute_input(read_only_layer) {
 }
 
 function unselect_features() {
-    draw_controls['select'].unselectAll();
-    if(draw_controls['edit'].feature) {
-        draw_controls['edit'].unselectFeature(selected_feature);
+    if(selected_feature || selected_features.length) {
+        if(draw_controls['edit'].feature) {
+            draw_controls['edit'].unselectFeature(selected_feature);
+        }
+        $('#edit_feature').removeClass('btn-success');
+        selected_feature = false;
+        selected_features = [];
+        draw_controls['select'].unselectAll();
     }
-    $('#edit_feature').removeClass('btn-success');
-    selected_feature = false;
 }
 
 function update_feature_attributes(map) {
@@ -135,20 +139,26 @@ function edit_feature(map) {
 
 function delete_feature(map) {
     var write_layer = map.getLayersByName(write_layer_name)[0];
-    var to_delete = selected_feature;
-    draw_controls['del'].deleteFeature(to_delete);
+    var to_delete = selected_features;
+    $.each(to_delete, function(idx, feature) {
+        draw_controls['del'].deleteFeature(feature);
+    });
 }
 
 function copy_feature(map) {
     var write_layer = map.getLayersByName(write_layer_name)[0];
-    var geometry = selected_feature.geometry.clone();
-    var new_feature = new OpenLayers.Feature.Vector(geometry);
-    new_feature.state = OpenLayers.State.INSERT;
-    $.each(selected_feature.attributes, function(k, v) {
-        new_feature.attributes[k] = v;
-    })
+    var new_features = [];
+    $.each(selected_features, function(idx, feature) {
+        var geometry = feature.geometry.clone();
+        var new_feature = new OpenLayers.Feature.Vector(geometry);
+        new_feature.state = OpenLayers.State.INSERT;
+        $.each(feature.attributes, function(k, v) {
+            new_feature.attributes[k] = v;
+        });
+        new_features.push(new_feature);
+    });
     unselect_features();
-    write_layer.addFeatures([new_feature]);
+    write_layer.addFeatures(new_features);
 }
 
 function save_changes(map) {
@@ -219,6 +229,7 @@ function init_draw_controls(map, layers, write_layer) {
     var select = new OpenLayers.Control.SelectFeature(layers, {
         title: "Select Feature",
         displayClass: "olControlSelectFeature",
+        multiple: true,
         onSelect: function (feature) {
             var target = $('#feature_attributes');
             target.empty().append(feature.layer.attributes_input);
@@ -234,11 +245,16 @@ function init_draw_controls(map, layers, write_layer) {
                 }
             });
             selected_feature = feature;
+            selected_features.push(feature);
             if(feature.layer != write_layer) {
                 $('#copy_feature').removeAttr('disabled');
             } else {
                 $('#delete_feature').removeAttr('disabled');
-                $('#edit_feature').removeAttr('disabled');
+                if(selected_features.length == 1) {
+                    $('#edit_feature').removeAttr('disabled');
+                } else {
+                    $('#edit_feature').attr('disabled', 'disabled');
+                }
             }
             $.each(feature.attributes, function(name, value) {
                 $('#feature_attributes #'+name).val(value);
