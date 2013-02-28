@@ -12,9 +12,9 @@ var rw_symbolizer = {
     "Polygon": {
         strokeWidth: 1,
         strokeOpacity: 0.5,
-        strokeColor: "#31D61E",
-        fillColor: "#31D61E",
-        fillOpacity: 0.5
+        strokeColor: "blue",
+        fillColor: "blue",
+        fillOpacity: 0.4
     }
 };
 
