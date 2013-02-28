@@ -60,6 +60,9 @@
             <hr>
             <footer class="footer">
                 <div class="container-fluid">
+                    {% if g.user and not g.user.is_anonymous() %}
+                    <p class="pull-left">{{ _('logged in as') }}: {{g.user.realname}} ({{ g.user.email }})</p>
+                    {% endif %}
                     <p class="pull-right">Copyright by <a href='http://omniscale.de' target="_blank">Omniscale</a></p>
                 </div>
             </footer>
