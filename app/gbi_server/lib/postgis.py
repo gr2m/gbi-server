@@ -150,7 +150,7 @@ class TempPGDB(object):
         cur = self.connection.cursor()
 
         feature_ids = []
-        schema_properties = set(self.schema.keys())
+        schema_properties = set(self.schema.get('properties', {}).keys())
         for feature in features:
             feature_id = feature['properties'].get('_id')
 

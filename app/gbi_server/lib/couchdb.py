@@ -215,8 +215,7 @@ class CouchDBBox(CouchDB):
               "map": "function(doc) { if (doc.layer) emit(doc.layer, {'_rev': doc._rev}) }"
             },
             "distinct": {
-              "map": "function(doc) { if (doc.layer) emit(doc.layer); }",
-              "reduce": "function(keys, values) { return true; }"
+              "map": "function(doc) { if (doc._id.indexOf('schema_') == 0 && doc.title) { emit(doc.layer, doc.title); } else if (doc._id.indexOf('schema_') == 0) { emit(doc.layer, doc.layer); } }"
             }
           }
         }
@@ -225,7 +224,8 @@ class CouchDBBox(CouchDB):
             design_doc['_rev'] = existing_design_doc['_rev']
         self.put('_design/layers', design_doc)
 
-    def store_layer_schema(self, layer, schema, extend_schema=True):
+    def store_layer_schema(self, layer, schema, extend_schema=True, title=None):
+        title = title if title else layer
         existing_doc = self.get('schema_' + layer)
 
         if extend_schema and existing_doc:
@@ -238,6 +238,7 @@ class CouchDBBox(CouchDB):
             new_doc = schema
 
         new_doc['layer'] = layer
+        new_doc['title'] = title
         self.put('schema_' + layer, new_doc)
 
     def iter_layer_features(self, layer):
@@ -250,11 +251,10 @@ class CouchDBBox(CouchDB):
                 yield geocouch_feature_to_geojson(feature)
 
     def get_layer_names(self):
-        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct?group=true')
+        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct')
         data = resp.json()
-
         for row in data.get('rows', []):
-            yield row['key']
+            yield (row['key'], row['value'])
 
     def layer_extent(self, layer=None):
         """

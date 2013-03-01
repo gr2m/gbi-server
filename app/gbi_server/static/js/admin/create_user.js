@@ -7,4 +7,11 @@ $(document).ready(function() {
         }
     });
     $('#activate').attr('disabled', 'disabled');
+    $('#type').change(function() {
+        if($(this).val() != 0) {
+            $('#florlp_name').parents('div.control-group:first').hide();
+        } else {
+            $('#florlp_name').parents('div.control-group:first').show();
+        }
+    });
 });

@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os
+import re
 import uuid
 
 from flask import render_template, Blueprint, flash, redirect, url_for, current_app, abort, request, Response
@@ -45,10 +46,10 @@ def wmts():
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, current_user.id))
     vector_layers = []
     couch_layers = couch.get_layer_names()
-    for layer in couch_layers:
+    for layer, title in couch_layers:
         features = [feature for feature in couch.iter_layer_features(layer) if isinstance(feature['geometry'], dict)]
         vector_layers.append({
-            'name': layer,
+            'name': title,
             'features': features,
             'readonly': True if layer != current_app.config.get('USER_WORKON_LAYER') else False
         })
@@ -64,16 +65,17 @@ def wfs_edit():
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
 
     if add_layer_form.validate_on_submit():
-        layer = add_layer_form.data.get('new_layer')
+        title = add_layer_form.data.get('new_layer')
+        layer = re.sub(r'[^a-z0-9]*', '',  title.lower())
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
         schema = florlp.base_schema()
         if couch.layer_schema(layer):
-            flash(_('Layer %(layer)s already exists', layer=layer), 'error')
+            flash(_('Layer %(title)s already exists', title=title), 'error')
         else:
-            couch.store_layer_schema(layer, schema)
-            flash(_('Layer %(layer)s created', layer=layer))
+            couch.store_layer_schema(layer, schema, title=title)
+            flash(_('Layer %(title)s created', title=title))
 
-    form.layer.choices = [(layer, layer) for layer in couch.get_layer_names() if layer != current_app.config.get('USER_READONLY_LAYER')]
+    form.layer.choices = [(layer, title) for layer, title in couch.get_layer_names() if layer != current_app.config.get('USER_READONLY_LAYER')]
 
     if form.validate_on_submit():
         layer = form.data.get('layer', current_app.config.get('USER_WORKON_LAYER'))
@@ -119,8 +121,9 @@ def wfs_edit_layer(layer=None):
         layers=WMTS.query.all(),
         read_only_features=features,
         read_only_schema=couch.layer_schema(layer)['properties'],
-        read_only_layer_name=current_app.config.get('USER_READONLY_LAYER'),
-        editable_layer_name=layer,
+        read_only_layer_name=current_app.config.get('USER_READONLY_LAYER_TITLE'),
+        editable_layer=layer,
+        editable_layer_name=wfs_layers[1]['name'],
         search_layer_name=current_app.config.get('EXTERNAL_WFS_NAME'),
         search_property=current_app.config.get('EXTERNAL_WFS_SEARCH_PROPERTY'),
         search_min_length=current_app.config.get('EXTERNAL_WFS_SEARCH_MIN_LENGTH'),
@@ -240,11 +243,13 @@ def create_wfs(user=None, layers=None):
 
     wfs = []
     tinyows_layers = []
-
+    titles = dict(couch.get_layer_names())
     for id, layer in enumerate(layers):
+        title = titles[layer] if layer in titles else layer
         wfs_layer = {
             'id': id,
-            'name': layer,
+            'name': title,
+            'layer': layer,
             'url': url_for('.tinyows_wfs', token=wfs_layer_token, _external=True) + '?',
             'srs': 'EPSG:3857',
             'geometry_field': 'geometry',

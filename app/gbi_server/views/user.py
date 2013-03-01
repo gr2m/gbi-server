@@ -91,7 +91,7 @@ def new():
     if form.validate_on_submit():
         florlp_session = False
         user_type = form.data['type']
-        layers = [current_app.config.get('USER_READONLY_LAYER'), current_app.config.get('USER_WORKON_LAYER')]
+        layers = [(current_app.config.get('USER_READONLY_LAYER'), current_app.config['USER_READONLY_LAYER_TITLE']), (current_app.config.get('USER_WORKON_LAYER'), current_app.config['USER_WORKON_LAYER_TITLE'])]
         if user_type == User.Type.CUSTOMER:
             try:
                 florlp_session = create_florlp_session(form.data['florlp_name'], form.data['florlp_password'])
@@ -132,13 +132,13 @@ def new():
             finally:
                 remove_florlp_session(florlp_session)
             feature_collection = transform_geojson(from_srs=current_app.config.get('FLORLP_SHP_SRS'), to_srs=3857, geojson=feature_collection)
-            for layer in layers:
-                couch.store_layer_schema(layer, schema)
+            for layer, title in layers:
+                couch.store_layer_schema(layer, schema, title=title)
                 couch.store_features(layer, feature_collection['features'])
 
         if user.is_service_provider:
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-            couch.store_layer_schema(current_app.config['USER_WORKON_LAYER'], florlp.base_schema())
+            couch.store_layer_schema(current_app.config['USER_WORKON_LAYER'], florlp.base_schema(), title=current_app.config['USER_WORKON_LAYER_TITLE'])
 
 
         return redirect(url_for(".verify_wait", id=user.id))
@@ -239,7 +239,8 @@ def recover_new_password(uuid):
         user.update_password(form.data['password'])
         db.session.delete(verify)
         db.session.commit()
-        return redirect(url_for(".index"))
+        login_user(user)
+        return redirect(url_for(".home"))
 
     return render_template("user/password_set.html", user=user, form=form, verify=verify)
 
@@ -281,7 +282,7 @@ def refresh_florlp():
     user = current_user
     form = RefreshFlorlpForm(request.form)
     if form.validate_on_submit():
-        layers = [current_app.config.get('USER_READONLY_LAYER')]
+        layers = [(current_app.config.get('USER_READONLY_LAYER'), current_app.config.get('USER_READONLY_LAYER_TITLE'))]
         try:
             florlp_session = create_florlp_session(user.florlp_name, form.data['password'])
         except FLOrlpUnauthenticated:
@@ -298,11 +299,11 @@ def refresh_florlp():
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
 
         if (not couch.layer_schema(current_app.config.get('USER_WORKON_LAYER')) or not couch.layer_extent(current_app.config.get('USER_WORKON_LAYER'))) and not user.type:
-            layers.append(current_app.config.get('USER_WORKON_LAYER'))
+            layers.append((current_app.config.get('USER_WORKON_LAYER'), current_app.config.get('USER_WORKON_LAYER_TITLE')))
 
-        for layer in layers:
+        for layer, title in layers:
             couch.clear_layer(layer)
-            couch.store_layer_schema(layer, schema)
+            couch.store_layer_schema(layer, schema, title=title)
             couch.store_features(layer, feature_collection['features'])
 
             signals.features_updated.send(user, layer=layer)
