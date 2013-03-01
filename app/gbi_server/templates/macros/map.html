@@ -49,7 +49,7 @@
         saveStrategy{{ wfs_layer['id'] }}.events.register("success", '', wfs_save_success);
         saveStrategy{{ wfs_layer['id'] }}.events.register("fail", '', wfs_save_fail);
 
-        wfs_sources.push(new OpenLayers.Layer.Vector("{{ wfs_layer['name'] }}", {
+        wfs_sources.push(new OpenLayers.Layer.Vector({{ wfs_layer['name']|tojson|safe }}, {
             strategies: [
             {% if wfs_layer['display_in_layerswitcher'] %}
                 new OpenLayers.Strategy.BBOX({ratio: 1})
@@ -92,7 +92,7 @@
     var geojson_format = new OpenLayers.Format.GeoJSON();
     {% for layer in layers %}
         geojson_sources.push(
-            new OpenLayers.Layer.Vector("{{ layer.name}}", {
+            new OpenLayers.Layer.Vector({{ layer.name|tojson|safe}}, {
                 styleMap: {% if layer.readonly %}ro_style_map{%else%}rw_style_map{%endif%},
                 displayInLayerSwitcher: true,
                 read_only: {{ layer.readonly|tojson|safe }}

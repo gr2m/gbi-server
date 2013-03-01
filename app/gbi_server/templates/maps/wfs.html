@@ -21,7 +21,7 @@
         };
         var read_only_schema = {{read_only_schema|tojson|safe}};
         var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer) }}";
-        var write_layer_name = "{{editable_layer_name}}";
+        var write_layer_name = {{editable_layer_name|tojson|safe}};
         var search_layer_name = "{{ search_layer_name }}";
         var search_property = "{{search_property}}";
         var search_min_length = {{search_min_length}};
