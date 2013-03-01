@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import render_template, Blueprint, flash, redirect, url_for, request, current_app
-from flask.ext.login import current_user
+from flask import render_template, Blueprint, flash, redirect, url_for, request, current_app, session
+from flask.ext.login import current_user, login_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
 from sqlalchemy.exc import IntegrityError
@@ -66,6 +66,14 @@ def verify_user(id):
     db.session.commit()
     flash(_('User verified', email=user.email), 'success')
     return redirect(url_for("admin.user_detail", id=id))
+
+
+@admin.route('/admin/login_as/<int:id>', methods=["GET"])
+def loging_as(id):
+    user = User.by_id(id)
+    login_user(user)
+    session['authproxy_token'] = user.authproxy_token
+    return redirect(url_for("user.home"))
 
 @admin.route('/admin/activate_user/<int:id>', methods=["GET"])
 def activate_user(id):

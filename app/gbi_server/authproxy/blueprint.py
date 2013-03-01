@@ -43,6 +43,7 @@ def couchdb_proxy_file(url):
 @authproxy.route('/authproxy/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
 @authproxy.route('/authproxy/<string:user_token>/tiles/', build_only=True)
 @authproxy.route('/authproxy/<string:user_token>/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
+@authproxy.route('/authproxy/<string:user_token>/tiles//<string:layer>/<path:url>', methods=['GET', 'POST'])
 def tile_proxy(layer, url, user_token=None):
     if user_token is None:
         user_token = session.get('authproxy_token')

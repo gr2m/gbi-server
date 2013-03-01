@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-21 10:12+0100\n"
+"POT-Creation-Date: 2013-02-26 16:49+0100\n"
 "PO-Revision-Date: 2013-02-08 08:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -256,16 +256,20 @@ msgstr "Konto erstellen"
 msgid "login"
 msgstr "Anmelden"
 
-#: gbi_server/templates/base.html:33
+#: gbi_server/templates/base.html:32
+msgid "logged in as"
+msgstr "Angemeldet als"
+
+#: gbi_server/templates/base.html:34
 msgid "administration"
 msgstr "Administration"
 
-#: gbi_server/templates/base.html:35
+#: gbi_server/templates/base.html:36
 #: gbi_server/templates/admin/user_detail.html:26
 msgid "user settings"
 msgstr "Benutzereinstellungen"
 
-#: gbi_server/templates/base.html:36
+#: gbi_server/templates/base.html:37
 msgid "logout"
 msgstr "Abmelden"
 
@@ -1032,44 +1036,44 @@ msgstr ""
 msgid "User verified"
 msgstr "Benutzer verifiziert"
 
-#: gbi_server/views/admin.py:77
+#: gbi_server/views/admin.py:85
 msgid "Account activated mail subject"
 msgstr "GBI-Konto aktiviert"
 
-#: gbi_server/views/admin.py:82
+#: gbi_server/views/admin.py:90
 msgid "User activated"
 msgstr "Konto aktiviert"
 
-#: gbi_server/views/admin.py:101 gbi_server/views/user.py:117
+#: gbi_server/views/admin.py:109 gbi_server/views/user.py:117
 #: gbi_server/views/user.py:172
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/views/admin.py:114
+#: gbi_server/views/admin.py:122
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: gbi_server/views/admin.py:130
+#: gbi_server/views/admin.py:138
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: gbi_server/views/admin.py:141
+#: gbi_server/views/admin.py:149
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
-#: gbi_server/views/admin.py:152
+#: gbi_server/views/admin.py:160
 msgid "User removed"
 msgstr "Benutzer gelöscht"
 
-#: gbi_server/views/admin.py:209
+#: gbi_server/views/admin.py:217
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin.py:213
+#: gbi_server/views/admin.py:221
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:222
+#: gbi_server/views/admin.py:230
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-21 10:12+0100\n"
+"POT-Creation-Date: 2013-02-26 16:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -254,16 +254,20 @@ msgstr ""
 msgid "login"
 msgstr ""
 
-#: gbi_server/templates/base.html:33
+#: gbi_server/templates/base.html:32
+msgid "logged in as"
+msgstr ""
+
+#: gbi_server/templates/base.html:34
 msgid "administration"
 msgstr ""
 
-#: gbi_server/templates/base.html:35
+#: gbi_server/templates/base.html:36
 #: gbi_server/templates/admin/user_detail.html:26
 msgid "user settings"
 msgstr ""
 
-#: gbi_server/templates/base.html:36
+#: gbi_server/templates/base.html:37
 msgid "logout"
 msgstr ""
 
@@ -939,44 +943,44 @@ msgstr ""
 msgid "User verified"
 msgstr ""
 
-#: gbi_server/views/admin.py:77
+#: gbi_server/views/admin.py:85
 msgid "Account activated mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:82
+#: gbi_server/views/admin.py:90
 msgid "User activated"
 msgstr ""
 
-#: gbi_server/views/admin.py:101 gbi_server/views/user.py:117
+#: gbi_server/views/admin.py:109 gbi_server/views/user.py:117
 #: gbi_server/views/user.py:172
 msgid "Email verification mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:114
+#: gbi_server/views/admin.py:122
 msgid "User created"
 msgstr ""
 
-#: gbi_server/views/admin.py:130
+#: gbi_server/views/admin.py:138
 msgid "User edited"
 msgstr ""
 
-#: gbi_server/views/admin.py:141
+#: gbi_server/views/admin.py:149
 msgid "Password reset"
 msgstr ""
 
-#: gbi_server/views/admin.py:152
+#: gbi_server/views/admin.py:160
 msgid "User removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:209
+#: gbi_server/views/admin.py:217
 msgid "Saved WMTS"
 msgstr ""
 
-#: gbi_server/views/admin.py:213
+#: gbi_server/views/admin.py:221
 msgid "WMTS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:222
+#: gbi_server/views/admin.py:230
 msgid "WMTS removed"
 msgstr ""
 
