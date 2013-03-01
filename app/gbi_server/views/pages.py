@@ -14,7 +14,10 @@
 # limitations under the License.
 
 import os
-from flask import Blueprint, render_template_string, abort, current_app
+from flask import (
+    Blueprint, render_template_string, abort, current_app,
+    safe_join, send_file,
+)
 
 pages = Blueprint("pages", __name__)
 
@@ -24,10 +27,13 @@ def page(lang, name):
     if not pages_dir:
         abort(404)
 
-    page_file = os.path.join(pages_dir, lang, name)
+    page_file = safe_join(safe_join(pages_dir, lang), name)
     if not os.path.isfile(page_file):
         abort(404)
 
-    with open(page_file) as f:
-        return render_template_string(f.read())
+    if page_file.endswith('.html'):
+        with open(page_file) as f:
+            return render_template_string(f.read())
+    else:
+        return send_file(page_file)
 
