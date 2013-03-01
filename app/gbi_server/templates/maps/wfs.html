@@ -14,7 +14,7 @@
         {{ add_wfs_layers(wfs) }}
         var SAVE_FAILED_MSG = "{{ _('save feautre not possible') }}"
         var SAVE_SUCCESSFULL_MSG = "{{ _('save feature successfull') }}"
-        var read_only_layer_name = "{{read_only_layer_name}}";
+        var read_only_layer_name = {{read_only_layer_name|tojson|safe}};
         var featurecollection = {
               "type": "FeatureCollection",
               "features":{{read_only_features|tojson|safe}}
