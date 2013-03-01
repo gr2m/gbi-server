@@ -14,8 +14,8 @@
     var sources = {};
     var has_visible_baselayer = false;
     {% for layer in layers %}
-        {% if layer.is_baselayer and layer.view_level_end %}
-        zoom_levels = {{ layer.view_level_end }};
+        {% if layer.is_background_layer and layer.view_level_end %}
+        zoom_levels = {{ layer.view_level_end + 1}};
         {% endif %}
         sources[{{ layer.id }}] = new OpenLayers.Layer.WMTS({
             name: '{{ layer.title }}',
