@@ -55,7 +55,7 @@ hop_by_hop_headers = set([
     'upgrade',
 ])
 
-def end_to_end_headers(headers):
+def end_to_end_headers(headers, drop_headers=None):
     """
     Create a copy of `headers` while removing all
     hop-by-hop headers (see HTTP1.1 RFC2616).
@@ -66,6 +66,8 @@ def end_to_end_headers(headers):
     result = []
     for key, value in headers.iteritems():
         if key.lower() in hop_by_hop_headers:
+            continue
+        if drop_headers and key.lower() in drop_headers:
             continue
         if not value:
             continue
@@ -156,7 +158,8 @@ class CouchDBProxy(object):
         except requests.exceptions.RequestException, ex:
             raise exceptions.BadGateway('source returned: %s' % ex)
 
-        headers = end_to_end_headers(resp.headers)
+        # requests handles content-encoding like gzip, drop this header as well
+        headers = end_to_end_headers(resp.headers, ('content-encoding', ))
 
         if chunked_response:
             # gunicorn supports chunked encoding, no need to
