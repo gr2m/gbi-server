@@ -215,8 +215,7 @@ class CouchDBBox(CouchDB):
               "map": "function(doc) { if (doc.layer) emit(doc.layer, {'_rev': doc._rev}) }"
             },
             "distinct": {
-              "map": "function(doc) { if (doc.title) emit(doc.layer, doc.title); }",
-              "reduce": "function(keys, values, reduce) { return values[0]; }"
+              "map": "function(doc) { if (doc._id.indexOf('schema_') == 0 && doc.title) { emit(doc.layer, doc.title); } else if (doc._id.indexOf('schema_') == 0) { emit(doc.layer, doc.layer); } }"
             }
           }
         }
@@ -252,9 +251,8 @@ class CouchDBBox(CouchDB):
                 yield geocouch_feature_to_geojson(feature)
 
     def get_layer_names(self):
-        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct?group=true')
+        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct')
         data = resp.json()
-
         for row in data.get('rows', []):
             yield (row['key'], row['value'])
 
