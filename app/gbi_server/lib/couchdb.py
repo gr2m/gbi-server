@@ -17,6 +17,7 @@ import requests
 import json
 import urllib
 import datetime
+import re
 
 from flask import current_app
 import shapely.geometry
@@ -215,8 +216,8 @@ class CouchDBBox(CouchDB):
               "map": "function(doc) { if (doc.layer) emit(doc.layer, {'_rev': doc._rev}) }"
             },
             "distinct": {
-              "map": "function(doc) { if (doc.layer) emit(doc.layer); }",
-              "reduce": "function(keys, values) { return true; }"
+              "map": "function(doc) { if (doc.title) emit(doc.layer, doc.title); }",
+              "reduce": "function(keys, values, reduce) { return values[0]; }"
             }
           }
         }
@@ -225,7 +226,8 @@ class CouchDBBox(CouchDB):
             design_doc['_rev'] = existing_design_doc['_rev']
         self.put('_design/layers', design_doc)
 
-    def store_layer_schema(self, layer, schema, extend_schema=True):
+    def store_layer_schema(self, title, schema, extend_schema=True):
+        layer = re.sub(r'[\-_]*', '',  ''.join(title.lower().split()))
         existing_doc = self.get('schema_' + layer)
 
         if extend_schema and existing_doc:
@@ -238,6 +240,7 @@ class CouchDBBox(CouchDB):
             new_doc = schema
 
         new_doc['layer'] = layer
+        new_doc['title'] = title
         self.put('schema_' + layer, new_doc)
 
     def iter_layer_features(self, layer):
@@ -254,7 +257,7 @@ class CouchDBBox(CouchDB):
         data = resp.json()
 
         for row in data.get('rows', []):
-            yield row['key']
+            yield (row['key'], row['value'])
 
     def layer_extent(self, layer=None):
         """

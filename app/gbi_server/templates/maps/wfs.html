@@ -20,14 +20,14 @@
               "features":{{read_only_features|tojson|safe}}
         };
         var read_only_schema = {{read_only_schema|tojson|safe}};
-        var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer_name) }}";
+        var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer) }}";
         var write_layer_name = "{{editable_layer_name}}";
         var search_layer_name = "{{ search_layer_name }}";
         var search_property = "{{search_property}}";
         var search_min_length = {{search_min_length}};
         var search_prefix = "{{search_prefix}}";
         $(document).ready(function() {
-            var base_map = init_map();
+            base_map = init_map();
             init_wfs(base_map);
             base_map.zoomToExtent(new OpenLayers.Bounds{{data_extent}});
         });

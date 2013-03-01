@@ -31,6 +31,6 @@ class WFSAddLayerForm(Form):
         return request and request.method in ("PUT", "POST") and request.form.get('add_form')
 
     new_layer = TextField(_l('wfs_new_layer_name'), validators=[
-        validators.Regexp(regex='^[a-z0-9]+$', message=_l('Only alphanummeric lowercase characters are allowed!')),
+        validators.Regexp(regex='^[\w\- ]+$', message=_l('Only alphanummeric lowercase characters are allowed!')),
     ])
     add_form = HiddenField()

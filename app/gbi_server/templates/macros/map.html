@@ -66,6 +66,7 @@
                 styleMap: ro_style_map,
                 writable: false,
             {% endif %}
+            layer: '{{ wfs_layer['layer'] }}',
             visibility: false,
             displayInLayerSwitcher: {{ wfs_layer['display_in_layerswitcher']|tojson|safe}},
             projection: new OpenLayers.Projection("EPSG:3857"),
