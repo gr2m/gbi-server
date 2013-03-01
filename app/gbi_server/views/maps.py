@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os
+import re
 import uuid
 
 from flask import render_template, Blueprint, flash, redirect, url_for, current_app, abort, request, Response
@@ -64,14 +65,15 @@ def wfs_edit():
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
 
     if add_layer_form.validate_on_submit():
-        layer = add_layer_form.data.get('new_layer')
+        title = add_layer_form.data.get('new_layer')
+        layer = re.sub(r'[^a-z0-9]*', '',  title.lower())
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
         schema = florlp.base_schema()
         if couch.layer_schema(layer):
-            flash(_('Layer %(layer)s already exists', layer=layer), 'error')
+            flash(_('Layer %(title)s already exists', title=title), 'error')
         else:
-            couch.store_layer_schema(layer, schema)
-            flash(_('Layer %(layer)s created', layer=layer))
+            couch.store_layer_schema(layer, schema, title=title)
+            flash(_('Layer %(title)s created', title=title))
 
     form.layer.choices = [(layer, title) for layer, title in couch.get_layer_names() if layer != current_app.config.get('USER_READONLY_LAYER')]
 

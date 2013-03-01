@@ -17,7 +17,6 @@ import requests
 import json
 import urllib
 import datetime
-import re
 
 from flask import current_app
 import shapely.geometry
@@ -226,8 +225,8 @@ class CouchDBBox(CouchDB):
             design_doc['_rev'] = existing_design_doc['_rev']
         self.put('_design/layers', design_doc)
 
-    def store_layer_schema(self, title, schema, extend_schema=True):
-        layer = re.sub(r'[\-_]*', '',  ''.join(title.lower().split()))
+    def store_layer_schema(self, layer, schema, extend_schema=True, title=None):
+        title = title if title else layer
         existing_doc = self.get('schema_' + layer)
 
         if extend_schema and existing_doc:
