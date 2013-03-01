@@ -78,7 +78,9 @@ class DefaultConfig(object):
     TEMP_PG_PORT = "5432"
 
     USER_READONLY_LAYER = "florlp"
+    USER_READONLY_LAYER_TITLE = "FLOrlp"
     USER_WORKON_LAYER = "baselayer"
+    USER_WORKON_LAYER_TITLE ="Basis Layer"
 
     COUCH_DB_URL = "http://127.0.0.1:5984"
     # user name and password for db admin that is allowed to

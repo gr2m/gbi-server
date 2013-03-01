@@ -106,7 +106,8 @@ def init_couchdb(config):
     user = model.User.by_email('landwirt@example.org')
     init_user_boxes(user, config.get('COUCH_DB_URL'))
     couch = CouchDBBox(config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-    layers = [config.get('USER_READONLY_LAYER'), config.get('USER_WORKON_LAYER')]
+    layers = [(config.get('USER_READONLY_LAYER'), config.get('USER_READONLY_LAYER_TITLE')), (config.get('USER_WORKON_LAYER'), config.get('USER_WORKON_LAYER_TITLE'))]
+    print layers
     florlp_session = create_florlp_session("demo", "demo")
     try:
         schema, feature_collection = latest_flursteuck_features(florlp_session)
@@ -114,9 +115,9 @@ def init_couchdb(config):
         remove_florlp_session(florlp_session)
 
     feature_collection = transform_geojson(from_srs=config.get('FLORLP_SHP_SRS'), to_srs=3857, geojson=feature_collection)
-    for layer in layers:
+    for layer, title in layers:
         couch.clear_layer(layer)
-        couch.store_layer_schema(layer, schema)
+        couch.store_layer_schema(layer, schema, title=title)
         couch.store_features(layer, feature_collection['features'])
 
     user = model.User.by_email('dienstleister@example.org')
